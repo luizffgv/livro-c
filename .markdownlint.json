@@ -1,0 +1,6 @@
+{
+  "no-inline-html": {
+    "allowed_elements": ["a", "code", "div"]
+  },
+  "MD013": { "code_blocks": false, "tables": false }
+}

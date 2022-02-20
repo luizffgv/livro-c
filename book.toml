@@ -1,0 +1,21 @@
+[book]
+title = "livro-c"
+language = "pt-BR"
+
+[preprocessor]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[output]
+
+[output.html]
+additional-css = ["theme/css/syntax.css", "mdbook-admonish.css", "././mdbook-admonish.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+git-repository-url = "https://github.com/luizffgv/livro-c"
+edit-url-template = "https://github.com/luizffgv/livro-c/edit/main/{path}"
+
+[output.linkcheck]
