@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tipos fundamentais - livro-c</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/css/syntax.css">
+        <link rel="stylesheet" href="../mdbook-admonish.css">
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefacio.html">Prefácio</a></li><li class="chapter-item expanded "><a href="../introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item expanded "><a href="../introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item expanded "><a href="../introducao/tipos_fundamentais.html" class="active"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item expanded "><a href="../introducao/saida.html"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item expanded "><a href="../introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item expanded "><a href="../introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.11.</strong> Operadores lógicos e relacionais</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Biblioteca padrão</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">livro-c</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/luizffgv/livro-c" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/luizffgv/livro-c/edit/main/src/introducao/tipos_fundamentais.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="tipos-fundamentais"><a class="header" href="#tipos-fundamentais">Tipos fundamentais</a></h1>
+<p>Anteriormente vimos que funções, parâmetros e variáveis podem representar
+diferentes tipos de dados. Alguns tipos já estão embutidos na linguagem, e serão
+chamados de <strong>tipos fundamentais</strong>. Esse grupo inclui os tipos inteiros e os
+tipos flutuantes, que podem ser vistos abaixo.</p>
+<h2 id="tipos-inteiros"><a class="header" href="#tipos-inteiros">Tipos inteiros</a></h2>
+<h3 id="tipo-int"><a class="header" href="#tipo-int">Tipo <code>int</code></a></h3>
+<p>Representa um número inteiro, como <code>-30</code> ou <code>529</code>. O menor e maior número
+representável em um <code>int</code> não está definido no padrão C, mas um <code>int</code>
+representará, no mínimo, qualquer número inteiro no intervalo [-32767,32767].</p>
+<h3 id="tipo-char"><a class="header" href="#tipo-char">Tipo <code>char</code></a></h3>
+<p>Representa um caractere, como <code>' '</code> (espaço em branco), <code>'s'</code> (letra &quot;s&quot;) ou <code>?</code>
+(ponto de interrogação). Os caracteres em C devem estar dentro de aspas simples;
+<code>&quot;a&quot;</code> é uma string.</p>
+<pre><code class="language-c">char foo = 'a'; // Okay
+
+char bar = &quot;a&quot;; // Erro
+</code></pre>
+<h4 id="sequências-de-escape"><a class="header" href="#sequências-de-escape">Sequências de escape</a></h4>
+<p>Alguns caracteres não podem ser simplesmente digitados, portanto são
+representados utilizando <strong>sequências de escape</strong>, nesse caso uma barra
+invertida <code>\</code> seguida de um caractere. Na tabela abaixo estão algumas sequências
+de escape.</p>
+<table><thead><tr><th style="text-align: center">Sequência</th><th style="text-align: left">Descrição</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>\a</code></td><td style="text-align: left">Produz um alerta audível ou visual</td></tr>
+<tr><td style="text-align: center"><code>\n</code></td><td style="text-align: left">Produz uma quebra de linha</td></tr>
+<tr><td style="text-align: center"><code>\'</code></td><td style="text-align: left">Produz uma aspa simples</td></tr>
+</tbody></table>
+<p>Tentar armazenar uma aspa simples em um <code>char</code> pode ser complicado, pois em
+<code>char ch = ''';</code> o compilador procura um caractere contido entre o primeiro par
+de aspas, porém não há nada dentro. Nesse caso devemos utilizar a sequência de
+escape <code>\'</code>: <code>char ch = '\'';</code>.</p>
+<pre><code class="language-c">char ch = '''; // Erro
+
+char ch = '\''; // Okay
+</code></pre>
+<h4 id="conversões-para-outros-tipos-inteiros"><a class="header" href="#conversões-para-outros-tipos-inteiros">Conversões para outros tipos inteiros</a></h4>
+<p>Valores <code>char</code> são internamente representados por valores inteiros, e o valor de
+cada caractere depende do sistema. Muitos sistemas utilizam o conjunto de
+caracteres ASCII, parcialmente mostrado na tabela abaixo.</p>
+<table><thead><tr><th style="text-align: right">Valor</th><th style="text-align: left">Caractere</th><th style="text-align: right">Valor</th><th style="text-align: left">Caractere</th><th style="text-align: right">Valor</th><th style="text-align: left">Caractere</th></tr></thead><tbody>
+<tr><td style="text-align: right"><code>32</code></td><td style="text-align: left">(espaço)</td><td style="text-align: right"><code>65</code></td><td style="text-align: left">A</td><td style="text-align: right"><code>97</code></td><td style="text-align: left">a</td></tr>
+<tr><td style="text-align: right"><code>48</code></td><td style="text-align: left">0</td><td style="text-align: right"><code>66</code></td><td style="text-align: left">B</td><td style="text-align: right"><code>98</code></td><td style="text-align: left">b</td></tr>
+<tr><td style="text-align: right"><code>49</code></td><td style="text-align: left">1</td><td style="text-align: right"><code>67</code></td><td style="text-align: left">C</td><td style="text-align: right"><code>99</code></td><td style="text-align: left">c</td></tr>
+<tr><td style="text-align: right"><code>50</code></td><td style="text-align: left">2</td><td style="text-align: right"><code>68</code></td><td style="text-align: left">D</td><td style="text-align: right"><code>100</code></td><td style="text-align: left">d</td></tr>
+<tr><td style="text-align: right"><code>51</code></td><td style="text-align: left">3</td><td style="text-align: right"><code>69</code></td><td style="text-align: left">E</td><td style="text-align: right"><code>101</code></td><td style="text-align: left">e</td></tr>
+<tr><td style="text-align: right"><code>52</code></td><td style="text-align: left">4</td><td style="text-align: right"><code>70</code></td><td style="text-align: left">F</td><td style="text-align: right"><code>102</code></td><td style="text-align: left">f</td></tr>
+<tr><td style="text-align: right"><code>53</code></td><td style="text-align: left">5</td><td style="text-align: right"><code>71</code></td><td style="text-align: left">G</td><td style="text-align: right"><code>103</code></td><td style="text-align: left">g</td></tr>
+<tr><td style="text-align: right"><code>54</code></td><td style="text-align: left">6</td><td style="text-align: right"><code>72</code></td><td style="text-align: left">H</td><td style="text-align: right"><code>104</code></td><td style="text-align: left">h</td></tr>
+<tr><td style="text-align: right"><code>55</code></td><td style="text-align: left">7</td><td style="text-align: right"><code>73</code></td><td style="text-align: left">I</td><td style="text-align: right"><code>105</code></td><td style="text-align: left">i</td></tr>
+<tr><td style="text-align: right"><code>56</code></td><td style="text-align: left">8</td><td style="text-align: right"><code>74</code></td><td style="text-align: left">J</td><td style="text-align: right"><code>106</code></td><td style="text-align: left">j</td></tr>
+<tr><td style="text-align: right"><code>57</code></td><td style="text-align: left">9</td><td style="text-align: right"><code>75</code></td><td style="text-align: left">K</td><td style="text-align: right"><code>107</code></td><td style="text-align: left">k</td></tr>
+</tbody></table>
+<p>Quando um valor <code>char</code> é convertido para outro tipo inteiro (e.g. <code>int</code>), o
+resultado é o valor inteiro que representa o caractere no conjunto de caracteres
+utilizado. Quando um tipo inteiro é convertido para <code>char</code>, o resultado é o
+caractere que representa o valor inteiro no conjunto de caracteres utilizado.</p>
+<pre><code class="language-c">char ch = 65; // ch é igual a 'A' se o conjunto de caracteres for ASCII
+
+int i = 'A'; // i é igual a 65 se o conjunto de caracteres for ASCII
+</code></pre>
+<div class="admonition warning">
+<div class="admonition-title">
+<p><code>'x'</code> é <code>char</code> mesmo?</p>
+</div>
+<div>
+<p>Caracteres entre aspas simples, como <code>'a'</code>, possuem tipo <code>int</code>. Esse detalhe não
+costuma ser problemático pois um valor <code>int</code> pode ser implicitamente convertido
+para <code>char</code>.</p>
+</div>
+</div>
+<h3 id="tipo-_bool"><a class="header" href="#tipo-_bool">Tipo <code>_Bool</code></a></h3>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Por que <code>_Bool</code> e não <code>bool</code>?</p>
+</div>
+<div>
+<p>Em C, <code>_Bool</code> é equivalente ao <code>bool</code> de outras linguagens de programação, mas
+possui outro nome pois esse tipo foi adicionado no padrão C99 e usar o nome
+<code>bool</code> poderia quebrar programas antigos.</p>
+</div>
+</div>
+<p>O tipo <code>_Bool</code> serve para armazenar um de dois valores: verdadeiro ou falso.
+Aqui está um exemplo de duas variáveis <code>_Bool</code>, com valores que indicam,
+respectivamente, verdade e falsidade:</p>
+<pre><code class="language-c">_Bool verdadeiro = 1;
+_Bool falso = 0;
+</code></pre>
+<p>Utilizar a palavra-chave <code>_Bool</code> pode não ser intuitivo. Por conveniência, é
+recomendado incluir o arquivo <code>&lt;stdbool.h&gt;</code>, que faz com que <code>bool</code> se refira a
+<code>_Bool</code> e permite utilizar as palavras <code>true</code> (verdadeiro) e <code>false</code> (falso).
+Veja o mesmo código que acima porém utilizando <code>&lt;stdbool.h&gt;</code>:</p>
+<pre><code class="language-c">bool verdadeiro = true;
+bool falso = false;
+</code></pre>
+<p>Sempre que <code>bool</code>, <code>true</code> ou <code>false</code> forem utilizados neste livro, considere que
+a diretiva <code>#include &lt;stdbool.h&gt;</code> está presente mesmo que em alguns exemplos ela
+possa estar omitida por conveniência. É útil lembrar, também, que <code>true</code> se
+refere ao valor <code>1</code> e <code>false</code> ao valor <code>0</code>.</p>
+<h4 id="exemplos-de-uso"><a class="header" href="#exemplos-de-uso">Exemplos de uso</a></h4>
+<p>Um exemplo do uso de <code>bool</code> são predicados (termo comum para funções que
+retornam <code>true</code> ou <code>false</code>). Suponhamos que a função <code>Paridade</code> seja um
+predicado que verifica a paridade de um número, retornando <code>true</code> caso ele seja
+par e <code>false</code> caso contrário.</p>
+<pre><code class="language-c">Paridade(1); // false
+Paridade(3); // false
+Paridade(5); // false
+
+Paridade(2); // true
+Paridade(4); // true
+Paridade(6); // true
+</code></pre>
+<h2 id="tipos-flutuantes"><a class="header" href="#tipos-flutuantes">Tipos flutuantes</a></h2>
+<h3 id="tipo-double"><a class="header" href="#tipo-double">Tipo <code>double</code></a></h3>
+<p>Representa um número real, como <code>-30.52</code> ou <code>529.0023</code>. Ao ser convertido para
+um inteiro a parte fracionária é descartada, portanto <code>15.89</code> se torna <code>15</code>. Se
+o valor for alto/baixo demais para ser representado por um <code>int</code>, o
+comportamento é indefinido.</p>
+<pre><code class="language-c">double d = 2.5; // d é igual a 2.5
+
+int i = 2.5; // i é igual a 2
+</code></pre>
+<h3 id="tipo-float"><a class="header" href="#tipo-float">Tipo <code>float</code></a></h3>
+<p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
+um <code>float</code> são um subconjunto dos valores representáveis em um <code>double</code>. Isso
+significa que um <code>float</code> pode ter menos precisão e/ou não conseguir representar
+valores da mesma magnitude que um <code>double</code>.</p>
+<p>Um <code>f</code> ou <code>F</code> após um valor flutuante (e.g. <code>1.5f</code>) especifica que o valor é do
+tipo <code>float</code>.</p>
+<pre><code class="language-c">float f = 2.5f; // f é igual a 2.5
+</code></pre>
+<h3 id="tipo-long-double"><a class="header" href="#tipo-long-double">Tipo <code>long double</code></a></h3>
+<p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
+um <code>long double</code> são um superconjunto dos valores representáveis em um <code>double</code>.
+Isso significa que um <code>long double</code> pode ter mais precisão e/ou conseguir
+representar valores de maior magnitude que um <code>double</code>.</p>
+<p>Um <code>l</code> ou <code>L</code> após um valor flutuante (e.g. <code>1.5l</code>) especifica que o valor é do
+tipo <code>long double</code>.</p>
+<pre><code class="language-c">long double ld = 2.5l; // ld é igual a 2.5
+</code></pre>
+<div class="admonition warning">
+<div class="admonition-title">
+<p>Precisão de tipos flutuantes</p>
+</div>
+<div>
+<p>Tipos flutuantes podem não representar todos os valores com precisão, mesmo que
+estejam entre o valor mínimo e o valor máximo permitidos.</p>
+<p>Em geral, quanto mais dígitos um valor possuir, menos precisa será sua
+representação. O valor <code>1.00000001f</code>, por exemplo, pode se tornar <code>1.1f</code> em
+algumas implementações.</p>
+</div>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introducao/variaveis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../introducao/tipos_tabelas.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introducao/variaveis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../introducao/tipos_tabelas.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../mermaid.min.js"></script>
+        <script type="text/javascript" src="../mermaid-init.js"></script>
+    </body>
+</html>

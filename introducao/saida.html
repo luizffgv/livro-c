@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html lang="pt-BR" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Saída básica - livro-c</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/css/syntax.css">
+        <link rel="stylesheet" href="../mdbook-admonish.css">
+        <link rel="stylesheet" href="../././mdbook-admonish.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prefacio.html">Prefácio</a></li><li class="chapter-item expanded "><a href="../introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item expanded "><a href="../introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item expanded "><a href="../introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item expanded "><a href="../introducao/tipos_fundamentais.html"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item expanded "><a href="../introducao/saida.html" class="active"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item expanded "><a href="../introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item expanded "><a href="../introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.11.</strong> Operadores lógicos e relacionais</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> Biblioteca padrão</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">livro-c</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/luizffgv/livro-c" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/luizffgv/livro-c/edit/main/src/introducao/saida.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="saída-básica"><a class="header" href="#saída-básica">Saída básica</a></h1>
+<p>As funções de saída do C permitem ao programa interagir com o usuário exibindo
+informações. Algumas funções para isso são <code>puts</code>, <code>putchar</code> e <code>printf</code>—todas
+incluídas em <code>&lt;stdio.h&gt;</code>.</p>
+<h2 id="função-puts"><a class="header" href="#função-puts">Função <code>puts</code></a></h2>
+<p>A função <code>puts</code> recebe uma string (sequência de caracteres) e a exibe. Podemos
+exibir a string <code>&quot;Olá, Mundo!&quot;</code> simplesmente utilizando-a como argumento de
+<code>puts</code>:</p>
+<pre><code class="language-c">puts(&quot;Olá, Mundo!&quot;);
+</code></pre>
+<blockquote>
+<p>Olá, Mundo!</p>
+</blockquote>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Aspas duplas ou simples?</p>
+</div>
+<div>
+<p>Diferente de um <code>char</code>, uma string não deve ser delimitada por aspas simples;
+uma sequência de caracteres entre aspas simples é um <code>int</code> e não uma string.</p>
+<p>Sequências de escape em C são interpretadas como caracteres únicos.</p>
+</div>
+</div>
+<!-- "Sequências de escape em C são interpretadas como caracteres únicos.". Isso
+se aplica a todas as sequências de escape padrão? -->
+<p>A função <code>puts</code> automaticamente insere uma quebra de linha (<code>\n</code>) na saída após
+a string fornecida, portanto a próxima operação de saída ocorrerá na linha
+seguinte:</p>
+<pre><code class="language-c">puts(&quot;Essa é a 1ª linha&quot;);
+puts(&quot;Essa é a 2ª linha&quot;);
+puts(&quot;Essa é a 3ª linha&quot;);
+</code></pre>
+<blockquote>
+<p>Essa é a 1ª linha<br />
+Essa é a 2ª linha<br />
+Essa é a 3ª linha</p>
+</blockquote>
+<p>Várias chamadas seguidas de <code>puts</code> com literais string podem ser substituídas
+por apenas uma:</p>
+<pre><code class="language-c">puts(&quot;Essa é a 1ª linha\n&quot;
+     &quot;Essa é a 2ª linha\n&quot;
+     &quot;Essa é a 3ª linha&quot;);
+</code></pre>
+<blockquote>
+<p>Essa é a 1ª linha<br />
+Essa é a 2ª linha<br />
+Essa é a 3ª linha</p>
+</blockquote>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Literais string</p>
+</div>
+<div>
+<p>Literais string são strings especificadas diretamente em código, entre aspas
+duplas. <code>&quot;a&quot;</code>, <code>&quot;Hello, World!&quot;</code> e <code>&quot;123.917&quot;</code> são exemplos de literais string.</p>
+</div>
+</div>
+<p>Note que as três strings passadas para <code>puts</code> não estão separadas por vírgula,
+portanto o compilador as mescla em uma só (processo que ocorre com literais
+string). O resultado final é o mesmo que ao utilizar a string
+<code>&quot;Essa é a 1ª linha\nEssa é 2ª linha\nEssa é a 3ª linha&quot;</code>, porém dividir as
+linhas torna o código mais compreensível. Utilize essa funcionalidade para uma
+melhor legibilidade de código.</p>
+<p>Tentar separar as três strings utilizando vírgulas resultará em um erro, pois
+serão consideradas três argumentos e a função <code>puts</code> deve receber apenas um:</p>
+<pre><code class="language-c">// Erro: Passando três argumentos para uma função que recebe apenas um
+puts(&quot;Essa é a 1ª linha\n&quot;,
+     &quot;Essa é a 2ª linha\n&quot;,
+     &quot;Essa é a 3ª linha&quot;);
+</code></pre>
+<p>Se os caracteres <code>é</code> e/ou <code>ª</code> não forem exibidos corretamente, seu terminal pode
+estar utilizando um conjunto de caracteres que não os suporta.</p>
+<h2 id="função-putchar"><a class="header" href="#função-putchar">Função <code>putchar</code></a></h2>
+<p>A função <code>putchar</code> é similar à função <code>puts</code>, porém exibe apenas um caractere e
+não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere:</p>
+<pre><code class="language-c">putchar('O');
+putchar('i');
+putchar('!');
+</code></pre>
+<blockquote>
+<p>Oi!</p>
+</blockquote>
+<div class="admonition tip">
+<div class="admonition-title">
+<p>Variáveis como argumentos</p>
+</div>
+<div>
+<p>Não esqueça que o identificador de uma variável é uma expressão, portanto pode
+ser utilizado como argumento. Imaginando que <code>v</code> denota uma variável,
+<code>putchar(v);</code> exibirá o caractere correspondente a seu valor.</p>
+</div>
+</div>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Parâmetro de <code>putchar</code></p>
+</div>
+<div>
+<p><code>putchar</code> recebe um <code>int</code>, porém um <code>char</code> será implicitamente convertido para
+<code>int</code> nesse contexto.</p>
+</div>
+</div>
+<p>Aqui está um exemplo de um programa simples, com uma função (<code>ExibirDuo</code>) que
+recebe dois caracteres e os exibe com uma exclamação no final:</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void ExibirDuo(char primeiro, char segundo)
+{
+    putchar(primeiro);
+    putchar(segundo);
+    putchar('!');
+}
+
+int main(void)
+{
+    ExibirDuo('O', 'i');
+
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>Oi!</p>
+</blockquote>
+<p>Não se engane, a função <code>ExibirDuo</code> é apenas um exemplo e não deve ser muito
+útil em um projeto sério.</p>
+<h2 id="função-printf"><a class="header" href="#função-printf">Função <code>printf</code></a></h2>
+<p>A função <code>printf</code>, diferente de <code>puts</code>, tem a capacidade de formatar os dados
+antes de exibi-los. O primeiro parâmetro da função é uma string de formato, que
+informa à função a série de operações de saída a serem realizadas.</p>
+<p>A string <code>&quot;Hello, World!&quot;</code>, ao ser usada como string de formato, faz com que
+<code>printf</code> simplesmente a exiba. Para realizarmos operações de saída mais
+complexas, utilizamos especificações de conversão—e.g. <code>%d</code>.</p>
+<ul>
+<li><code>%</code>: Introduz uma especificação de conversão.</li>
+<li><code>d</code>: Um <em>especificador</em> de conversão que indica um valor do tipo <code>int</code> em
+base 10.</li>
+</ul>
+<p>Ao exibir, <code>printf</code> substitui as especificações de conversão pelos valores dos
+argumentos recebidos:</p>
+<pre><code class="language-c">// %d é substituído pelo argumento 5
+printf(&quot;O valor de 5 é %d&quot;, 5);
+</code></pre>
+<blockquote>
+<p>O valor de 5 é 5</p>
+</blockquote>
+<p>Quando há várias especificações de conversão, a enésima especificação é
+substituída pelo enésimo argumento após a string de formato:</p>
+<pre><code class="language-c">// O 1º %d é substituído pelo 1º argumento após a string de formato (5)
+// O 2º %d é substituído pelo 2º argumento após a string de formato (9)
+printf(&quot;O valor de 5 é %d e o valor de 9 é %d&quot;, 5, 9);
+</code></pre>
+<blockquote>
+<p>O valor de 5 é 5 e o valor de 9 é 9</p>
+</blockquote>
+<p>Para os diversos tipos há diversos especificadores de conversão. Vejamos alguns
+deles:</p>
+<table><thead><tr><th style="text-align: center">Especificador</th><th>Significado</th></tr></thead><tbody>
+<tr><td style="text-align: center"><code>c</code></td><td>Um <code>char</code>, exibido como um caractere</td></tr>
+<tr><td style="text-align: center"><code>u</code></td><td>Um <code>unsigned</code>, exibido em base 10</td></tr>
+<tr><td style="text-align: center"><code>f</code></td><td>Um <code>double</code>, exibido com 6 casas decimais por padrão</td></tr>
+<tr><td style="text-align: center"><code>s</code></td><td>Uma string</td></tr>
+</tbody></table>
+<pre><code class="language-c">// %s é substituído por &quot;World&quot;.
+printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
+</code></pre>
+<blockquote>
+<p>Hello, World!</p>
+</blockquote>
+<pre><code class="language-c">// %f é substituído pelo valor da expressão acos(-1), função de &lt;math.h&gt;.
+// Isso exibirá um valor aproximado de π com 6 casas decimais, e pode variar
+// conforme o seu sistema. Teste você mesmo.
+printf(&quot;O valor de pi é %f&quot;, acos(-1));
+</code></pre>
+<pre><code class="language-c">// %c é substituído pelo caractere &quot;+&quot;.
+printf(&quot;1 %c 1&quot;, '+');
+</code></pre>
+<blockquote>
+<p>1 + 1</p>
+</blockquote>
+<p>Diferente do que acontece com <code>puts</code>, o repetido uso de <code>printf</code> acima irá
+exibir toda a saída em uma linha apenas. Para iniciar uma nova linha utilize a
+sequência de escape <code>\n</code> no final da string de formato anterior ou no início da
+string de formato atual, por exemplo:</p>
+<pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;, &quot;World&quot;);
+printf(&quot;Goodbye, %s!&quot;, &quot;World&quot;);
+
+// Alternativamente:
+printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
+printf(&quot;\nGoodbye, %s!&quot;, &quot;World&quot;);
+</code></pre>
+<p>Nos casos acima seria melhor utilizar <code>printf</code> apenas uma vez, mas serve como
+exemplo. Mesmo assim, aqui está uma forma de exibir com um <code>printf</code>:</p>
+<pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;
+       &quot;Goodbye, %s!&quot;,
+       &quot;World&quot;, &quot;World&quot;);
+
+// Alternativamente:
+printf(&quot;Hello, %s!\nGoodbye, %s!&quot;, &quot;World&quot;, &quot;World&quot;);
+</code></pre>
+<p>Na primeira opção acima os primeiros dois literais string se tornam um argumento
+só, efetivamente causando o mesmo resultado que a segunda opção. Esse processo
+foi explicado em <a href="#fun%C3%A7%C3%A3o-puts">Função <code>puts</code></a>.</p>
+<div class="admonition tip">
+<div class="admonition-title">
+<p><code>%f</code> para <code>float</code>?</p>
+</div>
+<div>
+<p>O especificador de conversão <code>f</code> irá funcionar até quando o argumento
+correspondente for <code>float</code> e o especificador <code>d</code> irá funcionar até quando o
+argumento correspondente for <code>short</code>. A razão disso é um assunto mais avançado.</p>
+</div>
+</div>
+<!-- Isso é devido às default argument promotions -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../introducao/tipos_tabelas.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../introducao/entrada.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../introducao/tipos_tabelas.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../introducao/entrada.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../mermaid.min.js"></script>
+        <script type="text/javascript" src="../mermaid-init.js"></script>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+.syntax {
+  font-family: serif;
+  text-align: center;
+  font-weight: 300;
+}
+
+.syntax strong {
+  font-weight: bold;
+}
