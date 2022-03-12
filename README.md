@@ -3,6 +3,8 @@
 Este livro virtual gratuito é um projeto que pretende trazer uma fonte moderna,
 confiável e completa para o aprendizado de C.
 
+[GitHub Pages](https://luizffgv.github.io/livro-c/)
+
 ## Requisitos
 
 Este livro utiliza [mdBook](https://github.com/rust-lang/mdBook) e os plugins
