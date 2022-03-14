@@ -1,0 +1,29 @@
+name: Markdownlint
+
+on:
+  push:
+    paths:
+      - "**.md"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get changed Markdown files
+        id: changed-files
+        uses: tj-actions/changed-files@v11.5
+        with:
+          files: ".*\\.md"
+
+      - name: Run markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v3.0.1
+        with:
+          config_file: ".markdownlint.json"
+          ignore_path: ".markdownlintignore"
+          files: ${{steps.changed-files.outputs.all_modified_files}}
