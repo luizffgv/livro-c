@@ -18,4 +18,7 @@ additional-js = ["mermaid.min.js", "mermaid-init.js"]
 git-repository-url = "https://github.com/luizffgv/livro-c"
 edit-url-template = "https://github.com/luizffgv/livro-c/edit/main/{path}"
 
+[output.html.fold]
+enable = true
+
 [output.linkcheck]
