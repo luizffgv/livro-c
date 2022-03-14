@@ -10,10 +10,11 @@ desse problema, e este livro é uma forma de contribuir para isso.
 
 Algumas das principais metas deste livro são:
 
+- Apresentar algumas "armadilhas" da linguagem C e como evitá-las;
 - Demonstrar usos dos mais diversos recursos da linguagem C;
 - Incentivar boas práticas de programação;
 - Introduzir conceitos gerais de programação e Ciência da Computação;
-- Ser claro e de fácil leitura;
+- Ser claro e de fácil leitura.
 
 ## Inspirações
 
