@@ -15,4 +15,6 @@
   - [Operadores de atribuição]()
   - [Associatividade de operadores]()
   - [Operadores lógicos e relacionais]()
+- [Armadilhas]()
+  - [Ordem de avaliação]()
 - [Biblioteca padrão]()
