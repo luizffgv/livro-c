@@ -11,7 +11,7 @@
   - [Saída básica](./introducao/saida.md)
   - [Entrada básica](./introducao/entrada.md)
   - [Operadores aritméticos básicos](./introducao/ops_aritmeticos.md)
-  - [Operadores de incremento e decremento]()
+  - [Operadores de incremento e decremento](./introducao/ops_incremento_decremento.md)
   - [Operadores de atribuição]()
   - [Associatividade de operadores]()
   - [Operadores lógicos e relacionais]()
