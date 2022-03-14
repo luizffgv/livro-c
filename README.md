@@ -1,5 +1,8 @@
 # livro-c
 
+[![Markdownlint](https://github.com/luizffgv/livro-c/actions/workflows/markdownlint.yml/badge.svg)](https://github.com/luizffgv/livro-c/actions/workflows/markdownlint.yml)
+[![GitHub Pages build](https://github.com/luizffgv/livro-c/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/luizffgv/livro-c/actions/workflows/gh-pages.yml)
+
 Este livro virtual gratuito é um projeto que pretende trazer uma fonte moderna,
 confiável e completa para o aprendizado de C.
 
