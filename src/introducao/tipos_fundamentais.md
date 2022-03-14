@@ -183,6 +183,6 @@ Tipos flutuantes podem não representar todos os valores com precisão, mesmo qu
 estejam entre o valor mínimo e o valor máximo permitidos.
 
 Em geral, quanto mais dígitos um valor possuir, menos precisa será sua
-representação. O valor `1.00000001f`, por exemplo, pode se tornar `1.1f` em
+representação. O valor `1.00000001f`, por exemplo, pode se tornar `1.f` em
 algumas implementações.
 ```
