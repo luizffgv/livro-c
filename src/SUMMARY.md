@@ -12,7 +12,7 @@
   - [Entrada básica](./introducao/entrada.md)
   - [Operadores aritméticos básicos](./introducao/ops_aritmeticos.md)
   - [Operadores de incremento e decremento](./introducao/ops_incremento_decremento.md)
-  - [Operadores de atribuição]()
+  - [Operadores de atribuição](./introducao/ops_atribuicao.md)
   - [Associatividade de operadores]()
   - [Operadores lógicos e relacionais]()
 - [Armadilhas]()
