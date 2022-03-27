@@ -8,10 +8,11 @@ operadores para fazer isso de forma concisa.
 Estes operadores unários ficam à esquerda de seus operandos e os modificam,
 incrementando (`++`) ou decrementando (`--`) o valor em 1.
 
+```admonish example "Exemplo"
 Aqui está um diagrama ilustrando as alterações que estes operadores causam no
 valor de uma variável:
 
-```mermaid
+~~~mermaid
 stateDiagram
     Direction LR
     [*]-->5: n = 5
@@ -31,29 +32,32 @@ stateDiagram
     note right of 7
         ...
     end note
-```
+~~~
 
-```c
+~~~c
 int n = 5;
 ++n; // n agora vale 6
 --n; // n agora vale 5
 --n; // n agora vale 4
 ++n; // n agora vale 5
+~~~
 ```
 
-Estas operações não só modificam o operando como também produzem seu novo valor.
-Isso significa que a expressão `++n` produz o valor `n + 1` e a expressão `--n`
-produz `n - 1`.
+As operações acima não só modificam o operando como também produzem seu novo
+valor. Isso significa que a expressão `++n` produz o valor `n + 1` e a expressão
+`--n` produz `n - 1`.
 
-```c
+```admonish example "Exemplo"
+~~~c
 int n = 5;
 
 printf("%d\n", ++n);
 printf("%d\n", --n);
-```
+~~~
 
-> 6  
-> 5
+> 6<br>
+5
+```
 
 ## Operadores de sufixo `++` e `--`
 
@@ -64,15 +68,17 @@ imediatamente mas sim durante ou antes do próximo ponto de sequência. Pontos d
 sequência existem em vários lugares diferentes, e.g. todo `;` é um ponto de
 sequência.
 
-```c
+```admonish info "Exemplo"
+~~~c
 int n = 5;
 
 printf("%d\n", n++); // n++ produz 5 e depois incrementa n
 printf("%d\n", n);
-```
+~~~
 
-> 5  
-> 6
+> 5<br>
+6
+```
 
 ```admonish danger "Operações não sequenciadas"
 Quando, sem um ponto de sequência entre as expressões, o valor de um objeto for

@@ -35,10 +35,11 @@ O operador binário `+` funciona igual na matemática: o resultado da operação
 soma dos dois operandos. `5 + 3`, por exemplo, é uma expressão de valor `int`
 `8`.
 
-Como exemplo, aqui está um programa que soma dois números que o usuário digitar
+```admonish example "Exemplo"
+Aqui está um programa que soma dois números que o usuário digitar
 e exibe o resultado:
 
-```c
+~~~c
 #include <stdio.h>
 
 int main(void)
@@ -50,6 +51,7 @@ int main(void)
 
     return 0;
 }
+~~~
 ```
 
 ### `-` binário
@@ -118,10 +120,11 @@ Ele pode ser no-op quando seu operando possui valor zero, mas em alguns sistemas
 é possível distinguir entre zero positivo e zero negativo. Não se preocupe muito
 com isso, pois o sinal do zero raramente altera o comportamento de um programa.
 
-Como exemplo de uso do `-` unário, aqui está um programa que inverte o número
+```admonish example "Exemplo"
+Aqui está um programa que inverte o número
 que o usuário digitar:
 
-```c
+~~~c
 #include <stdio.h>
 
 int main(void)
@@ -134,6 +137,7 @@ int main(void)
 
     return 0;
 }
+~~~
 ```
 
 ## Precedência
@@ -147,10 +151,12 @@ e `-`, portanto, a expressão `a + b / 2` é o mesmo que `a + (b / 2)`. As vers�
 unárias de `+` e `-` possuem maior precedência que todos os operadores acima,
 portanto `a + b * -c` é o mesmo que `a + (b * (-c))`.
 
+```admonish example "Exemplo"
 Aqui estão mais alguns exemplos da precedência desses operadores:
 
-```c
+~~~c
 int   a = 1 + 2 * 3;   // 7
 int   b = 10 + 2 / 2;  // 11
 float c = 1 + 3.f / 2; // 2.5f
+~~~
 ```

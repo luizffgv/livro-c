@@ -29,18 +29,21 @@ Diferente de `printf`, perceba que `scanf` utiliza a especificação `%f` para
 `%d` lugar de `%hd` e vice-versa.
 
 Para armazenar um valor lido com uma especificação de conversão, precisamos
-especificar seu alvo (a localização de um objeto na memória). No nosso caso,
-utilizaremos o operador `&` unário (_address-of_, ou endereço-de) para obter o
-endereço do objeto representado pela variável `n`:
+especificar seu alvo (a localização de um objeto na memória).
 
-```c
+```admonish example "Exemplo"
+Neste caso, utilizaremos o operador `&` unário (_address-of_, ou endereço-de)
+para obter o endereço do objeto representado pela variável `n`:
+
+~~~c
 int n;
 scanf("%d", &n);
+~~~
 ```
 
-A chamada de função acima lê um número inteiro da entrada e armazena seu valor
-em `n` por meio de seu endereço na memória. A especificação `%d` descarta
-quaisquer caracteres white-space da entrada até encontrar outro tipo de
+A chamada de função no exemplo acima lê um número inteiro da entrada e armazena
+seu valor em `n` por meio de seu endereço na memória. A especificação `%d`
+descarta quaisquer caracteres white-space da entrada até encontrar outro tipo de
 caractere, portanto essa `scanf` funciona com qualquer número de caracteres
 white-space precedendo o número na entrada.
 
@@ -53,9 +56,10 @@ expressão se refere a qualquer caractere da lista abaixo.
 - `'\n'` (quebra de linha)
 - `'\f'` (quebra de página)
 
+```admonish example "Um programa com entrada/saída"
 Retomando nosso foco, já podemos fazer um simples programa com entrada e saída:
 
-```c
+~~~c
 #include <stdio.h>
 
 int main(void)
@@ -68,9 +72,10 @@ int main(void)
 
     return 0;
 }
+~~~
 ```
 
-Execute o código acima e tente fazê-lo produzir um resultado incorreto. A
+Execute o exemplo acima e tente fazê-lo produzir um resultado incorreto. A
 leitura do número pode dar errado de várias formas, incluindo:
 
 - A entrada não é um número. Nesse caso `scanf` não modifica a entrada (exceto
@@ -85,10 +90,11 @@ Com a especificação `%d` a sequência de dígitos será lida até um caractere
 outro tipo (ex. uma letra) ser encontrado. Com a entrada `163p90`, `scanf`
 associará `163` ao `%d` e `p90` continuará na entrada para ser lido futuramente.
 
+```admonish example "Lendo <code>163p90</code>"
 Podemos decompor a entrada `163p90` em dois objetos `int` e um `char` da
 seguinte forma:
 
-```c
+~~~c
 // A ordem de definição das variáveis não importa
 int  a;
 char b;
@@ -100,33 +106,38 @@ printf("a: %d\n"
        "b: %c\n"
        "c: %d\n",
        a, b, c);
+~~~
+
+> a: 163<br>
+b: p<br>
+c: 90
 ```
 
-> a: 163  
-> b: p  
-> c: 90
-
-A `scanf` acima associa `163` ao primeiro `%d`, armazena o valor em `a` e a
-sequência `p90` continua na entrada. O próximo caractere (`'p'` nesse caso) se
-associa ao `%c` e é armazenado em `b`. O último `%d` recebe o inteiro `90` que é
-armazenado em `c`. Depois, os valores são exibidos com `printf`.
+No exemplo acima a `scanf` acima associa `163` ao primeiro `%d`, armazena o
+valor em `a` e a sequência `p90` continua na entrada. O próximo caractere (`'p'`
+nesse caso) se associa ao `%c` e é armazenado em `b`. O último `%d` recebe o
+inteiro `90` que é armazenado em `c`. Depois, os valores são exibidos com
+`printf`.
 
 Quando um caractere da string de formato não faz parte de uma especificação de
 conversão, `scanf` verificará se esse caractere é igual ao próximo caractere da
 entrada. Se sim, o caractere da entrada é descartado e prosseguimos com a string
 de formato, caso contrário a execução de `scanf` para.
 
-```c
+```admonish example "Exemplo"
+~~~c
 printf("Quantos anos você tem? ");
 int idade;
 scanf("Eu tenho %d", &idade);
+~~~
 ```
 
-A `scanf` acima só chega ao `%d` se os caracteres anteriores corresponderem à
-entrada. Se a entrada for `Eu tenho 5`, o valor de `idade` será 5, mas a entrada
-`Eu tinha 5` não armazena nada em `idade` e seu valor é indeterminado. Um espaço
-na string de formato corresponde a zero ou mais caracteres white-space na
-entrada, então a entrada `Eutenho5` também funciona corretamente.
+No exemplo acima a `scanf` acima só chega ao `%d` se os caracteres anteriores
+corresponderem à entrada. Se a entrada for `Eu tenho 5`, o valor de `idade` será
+5, mas a entrada `Eu tinha 5` não armazena nada em `idade` e seu valor é
+indeterminado. Um espaço na string de formato corresponde a zero ou mais
+caracteres white-space na entrada, então a entrada `Eutenho5` também funciona
+corretamente.
 
 A string de formato `"Eu tenho%d"` também funciona corretamente, pois como
 supracitado, a especificação `%d` faz com que `scanf` descarta qualquer espaço
@@ -139,9 +150,10 @@ esse caractere se associe a uma futura especificação `%c` e isso pode ser
 indesejado. Para descartar esse caractere de uma forma simples, utilize um
 espaço antes da especificação `%c` e isso pulará a quebra de linha.
 
+```admonish example "Exemplo"
 Aqui está um código em que a quebra de linha na entrada pode ser prejudicial:
 
-```c
+~~~c
 int num;
 scanf("%d", &num);
 
@@ -150,11 +162,11 @@ scanf("%c", &ch); // Isso lerá uma quebra de linha se o usuário tiver digitado
                   //  um número e pressionado ENTER.
 
 printf("O caractere lido foi '%c'\n", ch);
-```
+~~~
 
 E aqui está uma versão que se previne disso:
 
-```c
+~~~c
 int num;
 scanf("%d", &num);
 
@@ -165,7 +177,8 @@ scanf(" %c", &ch); // O usuário pode inserir espaços e pressionar ENTER o quan
                    // quiser. Apenas um caractere non-white-space se associará.
 
 printf("O caractere lido foi '%c'\n", ch);
-```
+~~~
 
 Alternativamente, o espaço pode estar após a especificação `%d`:
 `scanf("%d ", &num)`.
+```
