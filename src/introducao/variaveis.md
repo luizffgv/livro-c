@@ -34,10 +34,13 @@ especificado.
 ## Uso
 
 O valor de uma variável pode ser acessado e modificado durante a execução do
-programa. Aqui está um código e um diagrama que representa as alterações no
+programa.
+
+```admonish example "Exemplo"
+Aqui está um código e um diagrama que representa as alterações no
 valor `x` durante sua execução:
 
-```c
+~~~c
 int main(void)
 {
     int x = 5;
@@ -47,14 +50,15 @@ int main(void)
     x = x + x + x;
 
     return 0;
-```
+~~~
 
-```mermaid
+~~~mermaid
 stateDiagram
     Direction LR
     5-->10: x = x + 5
     10-->1: x = x - 9
     1-->3: x = x + x + x
+~~~
 ```
 
 O identificador de uma variável é uma expressão que produz o valor armazenado em
@@ -159,9 +163,10 @@ int foo(void)
 ### Escopo de Arquivo
 
 Uma variável declarada fora de um bloco possui escopo de arquivo—pode ser
-acessada em qualquer lugar do arquivo após sua declaração:
+acessada em qualquer lugar do arquivo após sua declaração.
 
-```c
+```admonish example "Exemplo"
+~~~c
 int n = 5;
 
 int foo(void)
@@ -173,6 +178,7 @@ int bar(void)
 {
     return n; // Retorna 5
 }
+~~~
 ```
 
 Diferente de variáveis com escopo de bloco, variáveis com escopo de arquivo são

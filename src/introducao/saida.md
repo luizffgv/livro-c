@@ -6,15 +6,18 @@ incluídas em `<stdio.h>`.
 
 ## Função `puts`
 
-A função `puts` recebe uma string (sequência de caracteres) e a exibe. Podemos
-exibir a string `"Olá, Mundo!"` simplesmente utilizando-a como argumento de
-`puts`:
+A função `puts` recebe uma string (sequência de caracteres) e a exibe.
 
-```c
+```admonish example "Exemplo"
+Podemos exibir a string `"Olá, Mundo!"` simplesmente utilizando-a como argumento
+de `puts`:
+
+~~~c
 puts("Olá, Mundo!");
-```
+~~~
 
 > Olá, Mundo!
+```
 
 ```admonish info "Aspas duplas ou simples?"
 Diferente de um `char`, uma string não deve ser delimitada por aspas simples;
@@ -28,30 +31,34 @@ se aplica a todas as sequências de escape padrão? -->
 
 A função `puts` automaticamente insere uma quebra de linha (`\n`) na saída após
 a string fornecida, portanto a próxima operação de saída ocorrerá na linha
-seguinte:
+seguinte.
 
-```c
+```admonish example "Exemplo"
+~~~c
 puts("Essa é a 1ª linha");
 puts("Essa é a 2ª linha");
 puts("Essa é a 3ª linha");
+~~~
+
+> Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
+Essa é a 3ª linha
 ```
 
-> Essa é a 1ª linha  
-> Essa é a 2ª linha  
-> Essa é a 3ª linha
-
 Várias chamadas seguidas de `puts` com literais string podem ser substituídas
-por apenas uma:
+por apenas uma.
 
-```c
+```admonish example "Exemplo"
+~~~c
 puts("Essa é a 1ª linha\n"
      "Essa é a 2ª linha\n"
      "Essa é a 3ª linha");
-```
+~~~
 
-> Essa é a 1ª linha  
-> Essa é a 2ª linha  
-> Essa é a 3ª linha
+> Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
+Essa é a 3ª linha
+```
 
 ```admonish info "Literais string"
 Literais string são strings especificadas diretamente em código, entre aspas
@@ -66,30 +73,36 @@ linhas torna o código mais compreensível. Utilize essa funcionalidade para uma
 melhor legibilidade de código.
 
 Tentar separar as três strings utilizando vírgulas resultará em um erro, pois
-serão consideradas três argumentos e a função `puts` deve receber apenas um:
+serão consideradas três argumentos e a função `puts` deve receber apenas um.
 
-```c
+```admonish example "Exemplo"
+~~~c
 // Erro: Passando três argumentos para uma função que recebe apenas um
 puts("Essa é a 1ª linha\n",
      "Essa é a 2ª linha\n",
      "Essa é a 3ª linha");
+~~~
 ```
 
+```admonish info "Exibição de caracteres estendidos"
 Se os caracteres `é` e/ou `ª` não forem exibidos corretamente, seu terminal pode
 estar utilizando um conjunto de caracteres que não os suporta.
+```
 
 ## Função `putchar`
 
 A função `putchar` é similar à função `puts`, porém exibe apenas um caractere e
-não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere:
+não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere.
 
-```c
+```admonish example "Exemplo"
+~~~c
 putchar('O');
 putchar('i');
 putchar('!');
-```
+~~~
 
 > Oi!
+```
 
 ```admonish hint "Variáveis como argumentos"
 Não esqueça que o identificador de uma variável é uma expressão, portanto pode
@@ -103,10 +116,11 @@ ser utilizado como argumento. Imaginando que `v` denota uma variável,
 
 ```
 
-Aqui está um exemplo de um programa simples, com uma função (`ExibirDuo`) que
-recebe dois caracteres e os exibe com uma exclamação no final:
+```admonish example "Mais um exemplo"
+Aqui está um programa simples, com uma função (`ExibirDuo`) que recebe dois
+caracteres e os exibe com uma exclamação no final:
 
-```c
+~~~c
 #include <stdio.h>
 
 void ExibirDuo(char primeiro, char segundo)
@@ -122,12 +136,10 @@ int main(void)
 
     return 0;
 }
-```
+~~~
 
 > Oi!
-
-Não se engane, a função `ExibirDuo` é apenas um exemplo e não deve ser muito
-útil em um projeto sério.
+```
 
 ## Função `printf`
 
@@ -144,25 +156,29 @@ complexas, utilizamos especificações de conversão—e.g. `%d`.
   base 10.
 
 Ao exibir, `printf` substitui as especificações de conversão pelos valores dos
-argumentos recebidos:
+argumentos recebidos.
 
-```c
+```admonish example "Exemplo com um argumento"
+~~~c
 // %d é substituído pelo argumento 5
 printf("O valor de 5 é %d", 5);
-```
+~~~
 
 > O valor de 5 é 5
+```
 
 Quando há várias especificações de conversão, a enésima especificação é
-substituída pelo enésimo argumento após a string de formato:
+substituída pelo enésimo argumento após a string de formato.
 
-```c
+```admonish example "Exemplo com vários argumentos"
+~~~c
 // O 1º %d é substituído pelo 1º argumento após a string de formato (5)
 // O 2º %d é substituído pelo 2º argumento após a string de formato (9)
 printf("O valor de 5 é %d e o valor de 9 é %d", 5, 9);
-```
+~~~
 
 > O valor de 5 é 5 e o valor de 9 é 9
+```
 
 Para os diversos tipos há diversos especificadores de conversão. Vejamos alguns
 deles:
@@ -174,56 +190,70 @@ deles:
 |      `f`      | Um `double`, exibido com 6 casas decimais por padrão |
 |      `s`      | Uma string                                           |
 
-```c
+```admonish example "Especificação <code>%s</code>"
+~~~c
 // %s é substituído por "World".
 printf("Hello, %s!", "World");
-```
+~~~
 
 > Hello, World!
+```
 
-```c
+```admonish example "Especificação <code>%f</code>"
+~~~c
 // %f é substituído pelo valor da expressão acos(-1), função de <math.h>.
 // Isso exibirá um valor aproximado de π com 6 casas decimais, e pode variar
 // conforme o seu sistema. Teste você mesmo.
 printf("O valor de pi é %f", acos(-1));
+~~~
 ```
 
-```c
+```admonish example "Especificação <code>%c</code>"
+~~~c
 // %c é substituído pelo caractere "+".
 printf("1 %c 1", '+');
-```
+~~~
 
 > 1 + 1
+```
 
 Diferente do que acontece com `puts`, o repetido uso de `printf` acima irá
 exibir toda a saída em uma linha apenas. Para iniciar uma nova linha utilize a
 sequência de escape `\n` no final da string de formato anterior ou no início da
-string de formato atual, por exemplo:
+string de formato atual.
 
-```c
+```admonish example "Exemplo"
+~~~c
 printf("Hello, %s!\n", "World");
 printf("Goodbye, %s!", "World");
+~~~
 
-// Alternativamente:
+Ou, alternativamente:
+
+~~~c
 printf("Hello, %s!", "World");
 printf("\nGoodbye, %s!", "World");
+~~~
 ```
 
-Nos casos acima seria melhor utilizar `printf` apenas uma vez, mas serve como
-exemplo. Mesmo assim, aqui está uma forma de exibir com um `printf`:
+```admonish info "Duas linhas em um <code>printf</code>"
+Nos exemplos acima seria melhor utilizar `printf` apenas uma vez. Aqui estão
+duas formas de exibir duas linhas com apenas um `printf`:
 
-```c
+~~~c
 printf("Hello, %s!\n"
        "Goodbye, %s!",
        "World", "World");
+~~~
 
-// Alternativamente:
+~~~c
 printf("Hello, %s!\nGoodbye, %s!", "World", "World");
-```
+~~~
 
 Na primeira opção acima os primeiros dois literais string se tornam um argumento
 só, efetivamente causando o mesmo resultado que a segunda opção. Esse processo
 foi explicado em [Função `puts`](#função-puts).
+```
 
 ```admonish hint "<code>%f</code> para <code>float</code>?"
 O especificador de conversão `f` irá funcionar até quando o argumento

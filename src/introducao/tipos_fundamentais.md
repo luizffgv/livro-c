@@ -19,10 +19,12 @@ Representa um caractere, como `' '` (espaço em branco), `'s'` (letra "s") ou `?
 (ponto de interrogação). Os caracteres em C devem estar dentro de aspas simples;
 `"a"` é uma string.
 
-```c
+```admonish example "Exemplo"
+~~~c
 char foo = 'a'; // Okay
 
 char bar = "a"; // Erro
+~~~
 ```
 
 #### Sequências de escape
@@ -43,10 +45,12 @@ Tentar armazenar uma aspa simples em um `char` pode ser complicado, pois em
 de aspas, porém não há nada dentro. Nesse caso devemos utilizar a sequência de
 escape `\'`: `char ch = '\'';`.
 
-```c
+```admonish example "Exemplo"
+~~~c
 char ch = '''; // Erro
 
 char ch = '\''; // Okay
+~~~
 ```
 
 #### Conversões para outros tipos inteiros
@@ -74,10 +78,12 @@ resultado é o valor inteiro que representa o caractere no conjunto de caractere
 utilizado. Quando um tipo inteiro é convertido para `char`, o resultado é o
 caractere que representa o valor inteiro no conjunto de caracteres utilizado.
 
-```c
+```admonish example "Exemplo"
+~~~c
 char ch = 65; // ch é igual a 'A' se o conjunto de caracteres for ASCII
 
 int i = 'A'; // i é igual a 65 se o conjunto de caracteres for ASCII
+~~~
 ```
 
 ```admonish warning "<code>'x'</code> é <code>char</code> mesmo?"
@@ -95,22 +101,29 @@ possui outro nome pois esse tipo foi adicionado no padrão C99 e usar o nome
 ```
 
 O tipo `_Bool` serve para armazenar um de dois valores: verdadeiro ou falso.
+
+```admonish example "Exemplo"
 Aqui está um exemplo de duas variáveis `_Bool`, com valores que indicam,
 respectivamente, verdade e falsidade:
 
-```c
+~~~c
 _Bool verdadeiro = 1;
 _Bool falso = 0;
+~~~
 ```
 
 Utilizar a palavra-chave `_Bool` pode não ser intuitivo. Por conveniência, é
 recomendado incluir o arquivo `<stdbool.h>`, que faz com que `bool` se refira a
 `_Bool` e permite utilizar as palavras `true` (verdadeiro) e `false` (falso).
-Veja o mesmo código que acima porém utilizando `<stdbool.h>`:
 
-```c
+```admonish example "Exemplo"
+Veja o mesmo código que no exemplo anterior acima porém utilizando
+`<stdbool.h>`:
+
+~~~c
 bool verdadeiro = true;
 bool falso = false;
+~~~
 ```
 
 Sempre que `bool`, `true` ou `false` forem utilizados neste livro, considere que
@@ -118,14 +131,13 @@ a diretiva `#include <stdbool.h>` está presente mesmo que em alguns exemplos el
 possa estar omitida por conveniência. É útil lembrar, também, que `true` se
 refere ao valor `1` e `false` ao valor `0`.
 
-#### Exemplos de uso
-
+```admonish example "Onde um <code>bool</code> seria usado?"
 Um exemplo do uso de `bool` são predicados (termo comum para funções que
 retornam `true` ou `false`). Suponhamos que a função `Paridade` seja um
 predicado que verifica a paridade de um número, retornando `true` caso ele seja
 par e `false` caso contrário.
 
-```c
+~~~c
 Paridade(1); // false
 Paridade(3); // false
 Paridade(5); // false
@@ -133,6 +145,7 @@ Paridade(5); // false
 Paridade(2); // true
 Paridade(4); // true
 Paridade(6); // true
+~~~
 ```
 
 ## Tipos flutuantes
@@ -144,10 +157,12 @@ um inteiro a parte fracionária é descartada, portanto `15.89` se torna `15`. S
 o valor for alto/baixo demais para ser representado por um `int`, o
 comportamento é indefinido.
 
-```c
+```admonish example "Exemplo"
+~~~c
 double d = 2.5; // d é igual a 2.5
 
 int i = 2.5; // i é igual a 2
+~~~
 ```
 
 ### Tipo `float`
@@ -160,8 +175,10 @@ valores da mesma magnitude que um `double`.
 Um `f` ou `F` após um valor flutuante (e.g. `1.5f`) especifica que o valor é do
 tipo `float`.
 
-```c
+```admonish example "Exemplo"
+~~~c
 float f = 2.5f; // f é igual a 2.5
+~~~
 ```
 
 ### Tipo `long double`
@@ -174,8 +191,10 @@ representar valores de maior magnitude que um `double`.
 Um `l` ou `L` após um valor flutuante (e.g. `1.5l`) especifica que o valor é do
 tipo `long double`.
 
-```c
+```admonish example "Exemplo"
+~~~c
 long double ld = 2.5l; // ld é igual a 2.5
+~~~
 ```
 
 ```admonish warning "Precisão de tipos flutuantes"

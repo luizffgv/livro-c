@@ -132,11 +132,14 @@ utilizada em alguns contextos em que se espera um valor, e.g. a expressão
 Dizemos que uma função é "chamada" quando é utilizada dessa forma. Uma chamada
 de função é uma expressão que possui o valor retornado pela função no final de
 sua execução; isso significa que a expressão `bar()` (chamada da função `bar`) é
-aproximadamente equivalente à expressão `3`. A função `bar2` abaixo, por
-exemplo, retornará o valor `6` (`3 + 3`):
+aproximadamente equivalente à expressão `3`.
 
-```c
+```admonish example "Exemplo"
+A função `bar2` abaixo retornará o valor `6` (`3 + 3`):
+
+~~~c
 int bar2(void) { return bar() + bar(); }
+~~~
 ```
 
 ```admonish hint "Chamadas de função como argumentos"
@@ -148,10 +151,12 @@ funções. `foo(bar())` resulta em `foo(3)`, que resulta em `6`.
 
 Antes de criar uma função, verifique se uma equivalente já não existe na
 biblioteca padrão do C. Para calcular o logaritmo natural de um número, por
-exemplo, basta utilizar a função `log` do arquivo `<math.h>`. Um programa que
-calcula o logaritmo natural de 5 pode ser feito assim:
+exemplo, basta utilizar a função `log` do arquivo `<math.h>`.
 
-```c
+```admonish example "Exemplo"
+Um programa que calcula o logaritmo natural de 5 pode ser feito assim:
+
+~~~c
 #include <math.h>
 
 int main(void)
@@ -160,6 +165,7 @@ int main(void)
 
     return 0;
 }
+~~~
 ```
 
 Embora `<math.h>` seja parte da biblioteca padrão, seu código pode não ser
@@ -167,5 +173,5 @@ ligado automaticamente ao programa. Para solicitar a ligação no compilador GCC
 adicione o argumento `-lm` na compilação (e.g. `gcc main.c -lm`). Em outros
 compiladores o procedimento pode ser diferente.
 
-Lembre-se também que no código acima, o valor de `log(5)` não é utilizado ou
+Lembre-se também que no exemplo acima, o valor de `log(5)` não é utilizado ou
 exibido—a exibição de valores numéricos será introduzida posteriormente.
