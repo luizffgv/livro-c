@@ -149,6 +149,11 @@ operadores para fazer isso de forma concisa.</p>
 <h2 id="operadores-de-prefixo--e---"><a class="header" href="#operadores-de-prefixo--e---">Operadores de prefixo <code>++</code> e <code>--</code></a></h2>
 <p>Estes operadores unários ficam à esquerda de seus operandos e os modificam,
 incrementando (<code>++</code>) ou decrementando (<code>--</code>) o valor em 1.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui está um diagrama ilustrando as alterações que estes operadores causam no
 valor de uma variável:</p>
 <pre class="mermaid">stateDiagram
@@ -177,18 +182,27 @@ valor de uma variável:</p>
 --n; // n agora vale 4
 ++n; // n agora vale 5
 </code></pre>
-<p>Estas operações não só modificam o operando como também produzem seu novo valor.
-Isso significa que a expressão <code>++n</code> produz o valor <code>n + 1</code> e a expressão <code>--n</code>
-produz <code>n - 1</code>.</p>
+</div>
+</div>
+<p>As operações acima não só modificam o operando como também produzem seu novo
+valor. Isso significa que a expressão <code>++n</code> produz o valor <code>n + 1</code> e a expressão
+<code>--n</code> produz <code>n - 1</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 printf(&quot;%d\n&quot;, ++n);
 printf(&quot;%d\n&quot;, --n);
 </code></pre>
 <blockquote>
-<p>6<br />
+<p>6<br>
 5</p>
 </blockquote>
+</div>
+</div>
 <h2 id="operadores-de-sufixo--e---"><a class="header" href="#operadores-de-sufixo--e---">Operadores de sufixo <code>++</code> e <code>--</code></a></h2>
 <p>Ao contrário dos operadores de prefixo, estes operadores ficam à direita do
 operando. O comportamento é similar: <code>++</code> incrementa e <code>--</code> decrementa, porém a
@@ -196,15 +210,22 @@ expressão produz o valor original e o incremento/decremento não ocorre
 imediatamente mas sim durante ou antes do próximo ponto de sequência. Pontos de
 sequência existem em vários lugares diferentes, e.g. todo <code>;</code> é um ponto de
 sequência.</p>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 printf(&quot;%d\n&quot;, n++); // n++ produz 5 e depois incrementa n
 printf(&quot;%d\n&quot;, n);
 </code></pre>
 <blockquote>
-<p>5<br />
+<p>5<br>
 6</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition danger">
 <div class="admonition-title">
 <p>Operações não sequenciadas</p>

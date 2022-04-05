@@ -157,10 +157,17 @@ representará, no mínimo, qualquer número inteiro no intervalo [-32767,32767].
 <p>Representa um caractere, como <code>' '</code> (espaço em branco), <code>'s'</code> (letra &quot;s&quot;) ou <code>?</code>
 (ponto de interrogação). Os caracteres em C devem estar dentro de aspas simples;
 <code>&quot;a&quot;</code> é uma string.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char foo = 'a'; // Okay
 
 char bar = &quot;a&quot;; // Erro
 </code></pre>
+</div>
+</div>
 <h4 id="sequências-de-escape"><a class="header" href="#sequências-de-escape">Sequências de escape</a></h4>
 <p>Alguns caracteres não podem ser simplesmente digitados, portanto são
 representados utilizando <strong>sequências de escape</strong>, nesse caso uma barra
@@ -175,10 +182,17 @@ de escape.</p>
 <code>char ch = ''';</code> o compilador procura um caractere contido entre o primeiro par
 de aspas, porém não há nada dentro. Nesse caso devemos utilizar a sequência de
 escape <code>\'</code>: <code>char ch = '\'';</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char ch = '''; // Erro
 
 char ch = '\''; // Okay
 </code></pre>
+</div>
+</div>
 <h4 id="conversões-para-outros-tipos-inteiros"><a class="header" href="#conversões-para-outros-tipos-inteiros">Conversões para outros tipos inteiros</a></h4>
 <p>Valores <code>char</code> são internamente representados por valores inteiros, e o valor de
 cada caractere depende do sistema. Muitos sistemas utilizam o conjunto de
@@ -200,10 +214,17 @@ caracteres ASCII, parcialmente mostrado na tabela abaixo.</p>
 resultado é o valor inteiro que representa o caractere no conjunto de caracteres
 utilizado. Quando um tipo inteiro é convertido para <code>char</code>, o resultado é o
 caractere que representa o valor inteiro no conjunto de caracteres utilizado.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char ch = 65; // ch é igual a 'A' se o conjunto de caracteres for ASCII
 
 int i = 'A'; // i é igual a 65 se o conjunto de caracteres for ASCII
 </code></pre>
+</div>
+</div>
 <div class="admonition warning">
 <div class="admonition-title">
 <p><code>'x'</code> é <code>char</code> mesmo?</p>
@@ -225,24 +246,43 @@ possui outro nome pois esse tipo foi adicionado no padrão C99 e usar o nome
 <code>bool</code> poderia quebrar programas antigos.</p>
 </div>
 </div>
-<p>O tipo <code>_Bool</code> serve para armazenar um de dois valores: verdadeiro ou falso.
-Aqui está um exemplo de duas variáveis <code>_Bool</code>, com valores que indicam,
+<p>O tipo <code>_Bool</code> serve para armazenar um de dois valores: verdadeiro ou falso.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um exemplo de duas variáveis <code>_Bool</code>, com valores que indicam,
 respectivamente, verdade e falsidade:</p>
 <pre><code class="language-c">_Bool verdadeiro = 1;
 _Bool falso = 0;
 </code></pre>
+</div>
+</div>
 <p>Utilizar a palavra-chave <code>_Bool</code> pode não ser intuitivo. Por conveniência, é
 recomendado incluir o arquivo <code>&lt;stdbool.h&gt;</code>, que faz com que <code>bool</code> se refira a
-<code>_Bool</code> e permite utilizar as palavras <code>true</code> (verdadeiro) e <code>false</code> (falso).
-Veja o mesmo código que acima porém utilizando <code>&lt;stdbool.h&gt;</code>:</p>
+<code>_Bool</code> e permite utilizar as palavras <code>true</code> (verdadeiro) e <code>false</code> (falso).</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Veja o mesmo código que no exemplo anterior acima porém utilizando
+<code>&lt;stdbool.h&gt;</code>:</p>
 <pre><code class="language-c">bool verdadeiro = true;
 bool falso = false;
 </code></pre>
+</div>
+</div>
 <p>Sempre que <code>bool</code>, <code>true</code> ou <code>false</code> forem utilizados neste livro, considere que
 a diretiva <code>#include &lt;stdbool.h&gt;</code> está presente mesmo que em alguns exemplos ela
 possa estar omitida por conveniência. É útil lembrar, também, que <code>true</code> se
 refere ao valor <code>1</code> e <code>false</code> ao valor <code>0</code>.</p>
-<h4 id="exemplos-de-uso"><a class="header" href="#exemplos-de-uso">Exemplos de uso</a></h4>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Onde um <code>bool</code> seria usado?</p>
+</div>
+<div>
 <p>Um exemplo do uso de <code>bool</code> são predicados (termo comum para funções que
 retornam <code>true</code> ou <code>false</code>). Suponhamos que a função <code>Paridade</code> seja um
 predicado que verifica a paridade de um número, retornando <code>true</code> caso ele seja
@@ -255,16 +295,25 @@ Paridade(2); // true
 Paridade(4); // true
 Paridade(6); // true
 </code></pre>
+</div>
+</div>
 <h2 id="tipos-flutuantes"><a class="header" href="#tipos-flutuantes">Tipos flutuantes</a></h2>
 <h3 id="tipo-double"><a class="header" href="#tipo-double">Tipo <code>double</code></a></h3>
 <p>Representa um número real, como <code>-30.52</code> ou <code>529.0023</code>. Ao ser convertido para
 um inteiro a parte fracionária é descartada, portanto <code>15.89</code> se torna <code>15</code>. Se
 o valor for alto/baixo demais para ser representado por um <code>int</code>, o
 comportamento é indefinido.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">double d = 2.5; // d é igual a 2.5
 
 int i = 2.5; // i é igual a 2
 </code></pre>
+</div>
+</div>
 <h3 id="tipo-float"><a class="header" href="#tipo-float">Tipo <code>float</code></a></h3>
 <p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
 um <code>float</code> são um subconjunto dos valores representáveis em um <code>double</code>. Isso
@@ -272,8 +321,15 @@ significa que um <code>float</code> pode ter menos precisão e/ou não conseguir
 valores da mesma magnitude que um <code>double</code>.</p>
 <p>Um <code>f</code> ou <code>F</code> após um valor flutuante (e.g. <code>1.5f</code>) especifica que o valor é do
 tipo <code>float</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">float f = 2.5f; // f é igual a 2.5
 </code></pre>
+</div>
+</div>
 <h3 id="tipo-long-double"><a class="header" href="#tipo-long-double">Tipo <code>long double</code></a></h3>
 <p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
 um <code>long double</code> são um superconjunto dos valores representáveis em um <code>double</code>.
@@ -281,8 +337,15 @@ Isso significa que um <code>long double</code> pode ter mais precisão e/ou cons
 representar valores de maior magnitude que um <code>double</code>.</p>
 <p>Um <code>l</code> ou <code>L</code> após um valor flutuante (e.g. <code>1.5l</code>) especifica que o valor é do
 tipo <code>long double</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">long double ld = 2.5l; // ld é igual a 2.5
 </code></pre>
+</div>
+</div>
 <div class="admonition warning">
 <div class="admonition-title">
 <p>Precisão de tipos flutuantes</p>

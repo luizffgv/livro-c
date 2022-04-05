@@ -148,14 +148,21 @@
 informações. Algumas funções para isso são <code>puts</code>, <code>putchar</code> e <code>printf</code>—todas
 incluídas em <code>&lt;stdio.h&gt;</code>.</p>
 <h2 id="função-puts"><a class="header" href="#função-puts">Função <code>puts</code></a></h2>
-<p>A função <code>puts</code> recebe uma string (sequência de caracteres) e a exibe. Podemos
-exibir a string <code>&quot;Olá, Mundo!&quot;</code> simplesmente utilizando-a como argumento de
-<code>puts</code>:</p>
+<p>A função <code>puts</code> recebe uma string (sequência de caracteres) e a exibe.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Podemos exibir a string <code>&quot;Olá, Mundo!&quot;</code> simplesmente utilizando-a como argumento
+de <code>puts</code>:</p>
 <pre><code class="language-c">puts(&quot;Olá, Mundo!&quot;);
 </code></pre>
 <blockquote>
 <p>Olá, Mundo!</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition info">
 <div class="admonition-title">
 <p>Aspas duplas ou simples?</p>
@@ -170,27 +177,41 @@ uma sequência de caracteres entre aspas simples é um <code>int</code> e não u
 se aplica a todas as sequências de escape padrão? -->
 <p>A função <code>puts</code> automaticamente insere uma quebra de linha (<code>\n</code>) na saída após
 a string fornecida, portanto a próxima operação de saída ocorrerá na linha
-seguinte:</p>
+seguinte.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">puts(&quot;Essa é a 1ª linha&quot;);
 puts(&quot;Essa é a 2ª linha&quot;);
 puts(&quot;Essa é a 3ª linha&quot;);
 </code></pre>
 <blockquote>
-<p>Essa é a 1ª linha<br />
-Essa é a 2ª linha<br />
+<p>Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
 Essa é a 3ª linha</p>
 </blockquote>
+</div>
+</div>
 <p>Várias chamadas seguidas de <code>puts</code> com literais string podem ser substituídas
-por apenas uma:</p>
+por apenas uma.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">puts(&quot;Essa é a 1ª linha\n&quot;
      &quot;Essa é a 2ª linha\n&quot;
      &quot;Essa é a 3ª linha&quot;);
 </code></pre>
 <blockquote>
-<p>Essa é a 1ª linha<br />
-Essa é a 2ª linha<br />
+<p>Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
 Essa é a 3ª linha</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition info">
 <div class="admonition-title">
 <p>Literais string</p>
@@ -207,17 +228,36 @@ string). O resultado final é o mesmo que ao utilizar a string
 linhas torna o código mais compreensível. Utilize essa funcionalidade para uma
 melhor legibilidade de código.</p>
 <p>Tentar separar as três strings utilizando vírgulas resultará em um erro, pois
-serão consideradas três argumentos e a função <code>puts</code> deve receber apenas um:</p>
+serão consideradas três argumentos e a função <code>puts</code> deve receber apenas um.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">// Erro: Passando três argumentos para uma função que recebe apenas um
 puts(&quot;Essa é a 1ª linha\n&quot;,
      &quot;Essa é a 2ª linha\n&quot;,
      &quot;Essa é a 3ª linha&quot;);
 </code></pre>
+</div>
+</div>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Exibição de caracteres estendidos</p>
+</div>
+<div>
 <p>Se os caracteres <code>é</code> e/ou <code>ª</code> não forem exibidos corretamente, seu terminal pode
 estar utilizando um conjunto de caracteres que não os suporta.</p>
+</div>
+</div>
 <h2 id="função-putchar"><a class="header" href="#função-putchar">Função <code>putchar</code></a></h2>
 <p>A função <code>putchar</code> é similar à função <code>puts</code>, porém exibe apenas um caractere e
-não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere:</p>
+não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">putchar('O');
 putchar('i');
 putchar('!');
@@ -225,6 +265,8 @@ putchar('!');
 <blockquote>
 <p>Oi!</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p>Variáveis como argumentos</p>
@@ -244,8 +286,13 @@ ser utilizado como argumento. Imaginando que <code>v</code> denota uma variável
 <code>int</code> nesse contexto.</p>
 </div>
 </div>
-<p>Aqui está um exemplo de um programa simples, com uma função (<code>ExibirDuo</code>) que
-recebe dois caracteres e os exibe com uma exclamação no final:</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Mais um exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa simples, com uma função (<code>ExibirDuo</code>) que recebe dois
+caracteres e os exibe com uma exclamação no final:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 void ExibirDuo(char primeiro, char segundo)
@@ -265,8 +312,8 @@ int main(void)
 <blockquote>
 <p>Oi!</p>
 </blockquote>
-<p>Não se engane, a função <code>ExibirDuo</code> é apenas um exemplo e não deve ser muito
-útil em um projeto sério.</p>
+</div>
+</div>
 <h2 id="função-printf"><a class="header" href="#função-printf">Função <code>printf</code></a></h2>
 <p>A função <code>printf</code>, diferente de <code>puts</code>, tem a capacidade de formatar os dados
 antes de exibi-los. O primeiro parâmetro da função é uma string de formato, que
@@ -280,15 +327,27 @@ complexas, utilizamos especificações de conversão—e.g. <code>%d</code>.</p>
 base 10.</li>
 </ul>
 <p>Ao exibir, <code>printf</code> substitui as especificações de conversão pelos valores dos
-argumentos recebidos:</p>
+argumentos recebidos.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo com um argumento</p>
+</div>
+<div>
 <pre><code class="language-c">// %d é substituído pelo argumento 5
 printf(&quot;O valor de 5 é %d&quot;, 5);
 </code></pre>
 <blockquote>
 <p>O valor de 5 é 5</p>
 </blockquote>
+</div>
+</div>
 <p>Quando há várias especificações de conversão, a enésima especificação é
-substituída pelo enésimo argumento após a string de formato:</p>
+substituída pelo enésimo argumento após a string de formato.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo com vários argumentos</p>
+</div>
+<div>
 <pre><code class="language-c">// O 1º %d é substituído pelo 1º argumento após a string de formato (5)
 // O 2º %d é substituído pelo 2º argumento após a string de formato (9)
 printf(&quot;O valor de 5 é %d e o valor de 9 é %d&quot;, 5, 9);
@@ -296,6 +355,8 @@ printf(&quot;O valor de 5 é %d e o valor de 9 é %d&quot;, 5, 9);
 <blockquote>
 <p>O valor de 5 é 5 e o valor de 9 é 9</p>
 </blockquote>
+</div>
+</div>
 <p>Para os diversos tipos há diversos especificadores de conversão. Vejamos alguns
 deles:</p>
 <table><thead><tr><th style="text-align: center">Especificador</th><th>Significado</th></tr></thead><tbody>
@@ -304,46 +365,80 @@ deles:</p>
 <tr><td style="text-align: center"><code>f</code></td><td>Um <code>double</code>, exibido com 6 casas decimais por padrão</td></tr>
 <tr><td style="text-align: center"><code>s</code></td><td>Uma string</td></tr>
 </tbody></table>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%s</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %s é substituído por &quot;World&quot;.
 printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
 </code></pre>
 <blockquote>
 <p>Hello, World!</p>
 </blockquote>
+</div>
+</div>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%f</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %f é substituído pelo valor da expressão acos(-1), função de &lt;math.h&gt;.
 // Isso exibirá um valor aproximado de π com 6 casas decimais, e pode variar
 // conforme o seu sistema. Teste você mesmo.
 printf(&quot;O valor de pi é %f&quot;, acos(-1));
 </code></pre>
+</div>
+</div>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%c</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %c é substituído pelo caractere &quot;+&quot;.
 printf(&quot;1 %c 1&quot;, '+');
 </code></pre>
 <blockquote>
 <p>1 + 1</p>
 </blockquote>
+</div>
+</div>
 <p>Diferente do que acontece com <code>puts</code>, o repetido uso de <code>printf</code> acima irá
 exibir toda a saída em uma linha apenas. Para iniciar uma nova linha utilize a
 sequência de escape <code>\n</code> no final da string de formato anterior ou no início da
-string de formato atual, por exemplo:</p>
+string de formato atual.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;, &quot;World&quot;);
 printf(&quot;Goodbye, %s!&quot;, &quot;World&quot;);
-
-// Alternativamente:
-printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
+</code></pre>
+<p>Ou, alternativamente:</p>
+<pre><code class="language-c">printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
 printf(&quot;\nGoodbye, %s!&quot;, &quot;World&quot;);
 </code></pre>
-<p>Nos casos acima seria melhor utilizar <code>printf</code> apenas uma vez, mas serve como
-exemplo. Mesmo assim, aqui está uma forma de exibir com um <code>printf</code>:</p>
+</div>
+</div>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Duas linhas em um <code>printf</code></p>
+</div>
+<div>
+<p>Nos exemplos acima seria melhor utilizar <code>printf</code> apenas uma vez. Aqui estão
+duas formas de exibir duas linhas com apenas um <code>printf</code>:</p>
 <pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;
        &quot;Goodbye, %s!&quot;,
        &quot;World&quot;, &quot;World&quot;);
-
-// Alternativamente:
-printf(&quot;Hello, %s!\nGoodbye, %s!&quot;, &quot;World&quot;, &quot;World&quot;);
+</code></pre>
+<pre><code class="language-c">printf(&quot;Hello, %s!\nGoodbye, %s!&quot;, &quot;World&quot;, &quot;World&quot;);
 </code></pre>
 <p>Na primeira opção acima os primeiros dois literais string se tornam um argumento
 só, efetivamente causando o mesmo resultado que a segunda opção. Esse processo
 foi explicado em <a href="#fun%C3%A7%C3%A3o-puts">Função <code>puts</code></a>.</p>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p><code>%f</code> para <code>float</code>?</p>

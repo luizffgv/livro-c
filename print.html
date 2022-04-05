@@ -359,10 +359,17 @@ utilizada em alguns contextos em que se espera um valor, e.g. a expressão
 <p>Dizemos que uma função é &quot;chamada&quot; quando é utilizada dessa forma. Uma chamada
 de função é uma expressão que possui o valor retornado pela função no final de
 sua execução; isso significa que a expressão <code>bar()</code> (chamada da função <code>bar</code>) é
-aproximadamente equivalente à expressão <code>3</code>. A função <code>bar2</code> abaixo, por
-exemplo, retornará o valor <code>6</code> (<code>3 + 3</code>):</p>
+aproximadamente equivalente à expressão <code>3</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>A função <code>bar2</code> abaixo retornará o valor <code>6</code> (<code>3 + 3</code>):</p>
 <pre><code class="language-c">int bar2(void) { return bar() + bar(); }
 </code></pre>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p>Chamadas de função como argumentos</p>
@@ -375,8 +382,13 @@ funções. <code>foo(bar())</code> resulta em <code>foo(3)</code>, que resulta e
 <h2 id="funções-na-biblioteca-padrão"><a class="header" href="#funções-na-biblioteca-padrão">Funções na biblioteca padrão</a></h2>
 <p>Antes de criar uma função, verifique se uma equivalente já não existe na
 biblioteca padrão do C. Para calcular o logaritmo natural de um número, por
-exemplo, basta utilizar a função <code>log</code> do arquivo <code>&lt;math.h&gt;</code>. Um programa que
-calcula o logaritmo natural de 5 pode ser feito assim:</p>
+exemplo, basta utilizar a função <code>log</code> do arquivo <code>&lt;math.h&gt;</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Um programa que calcula o logaritmo natural de 5 pode ser feito assim:</p>
 <pre><code class="language-c">#include &lt;math.h&gt;
 
 int main(void)
@@ -386,11 +398,13 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <p>Embora <code>&lt;math.h&gt;</code> seja parte da biblioteca padrão, seu código pode não ser
 ligado automaticamente ao programa. Para solicitar a ligação no compilador GCC,
 adicione o argumento <code>-lm</code> na compilação (e.g. <code>gcc main.c -lm</code>). Em outros
 compiladores o procedimento pode ser diferente.</p>
-<p>Lembre-se também que no código acima, o valor de <code>log(5)</code> não é utilizado ou
+<p>Lembre-se também que no exemplo acima, o valor de <code>log(5)</code> não é utilizado ou
 exibido—a exibição de valores numéricos será introduzida posteriormente.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="variáveis"><a class="header" href="#variáveis">Variáveis</a></h1>
 <h2 id="declaração-e-inicialização"><a class="header" href="#declaração-e-inicialização">Declaração e inicialização</a></h2>
@@ -416,7 +430,13 @@ já estava na memória. Para inicializá-la, basta especificar um inicializador
 especificado.</p>
 <h2 id="uso-1"><a class="header" href="#uso-1">Uso</a></h2>
 <p>O valor de uma variável pode ser acessado e modificado durante a execução do
-programa. Aqui está um código e um diagrama que representa as alterações no
+programa.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um código e um diagrama que representa as alterações no
 valor <code>x</code> durante sua execução:</p>
 <pre><code class="language-c">int main(void)
 {
@@ -434,6 +454,8 @@ valor <code>x</code> durante sua execução:</p>
     10--&gt;1: x = x - 9
     1--&gt;3: x = x + x + x
 </pre>
+</div>
+</div>
 <p>O identificador de uma variável é uma expressão que produz o valor armazenado em
 seu respectivo objeto, portanto após a expressão <code>x = 10</code>, a expressão <code>x</code>
 produz o valor <code>10</code>; nesse caso <code>x + 3</code> é o mesmo que <code>10 + 3</code>.</p>
@@ -516,7 +538,12 @@ original será acessada:</p>
 </code></pre>
 <h3 id="escopo-de-arquivo"><a class="header" href="#escopo-de-arquivo">Escopo de Arquivo</a></h3>
 <p>Uma variável declarada fora de um bloco possui escopo de arquivo—pode ser
-acessada em qualquer lugar do arquivo após sua declaração:</p>
+acessada em qualquer lugar do arquivo após sua declaração.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 int foo(void)
@@ -529,6 +556,8 @@ int bar(void)
     return n; // Retorna 5
 }
 </code></pre>
+</div>
+</div>
 <p>Diferente de variáveis com escopo de bloco, variáveis com escopo de arquivo são
 inicializadas com valores definidos de acordo com seus tipos. Se o inicializador
 fosse removido do código acima <code>n</code> armazenaria <code>0</code>, enquanto se <code>n</code> tivesse
@@ -558,10 +587,17 @@ representará, no mínimo, qualquer número inteiro no intervalo [-32767,32767].
 <p>Representa um caractere, como <code>' '</code> (espaço em branco), <code>'s'</code> (letra &quot;s&quot;) ou <code>?</code>
 (ponto de interrogação). Os caracteres em C devem estar dentro de aspas simples;
 <code>&quot;a&quot;</code> é uma string.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char foo = 'a'; // Okay
 
 char bar = &quot;a&quot;; // Erro
 </code></pre>
+</div>
+</div>
 <h4 id="sequências-de-escape"><a class="header" href="#sequências-de-escape">Sequências de escape</a></h4>
 <p>Alguns caracteres não podem ser simplesmente digitados, portanto são
 representados utilizando <strong>sequências de escape</strong>, nesse caso uma barra
@@ -576,10 +612,17 @@ de escape.</p>
 <code>char ch = ''';</code> o compilador procura um caractere contido entre o primeiro par
 de aspas, porém não há nada dentro. Nesse caso devemos utilizar a sequência de
 escape <code>\'</code>: <code>char ch = '\'';</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char ch = '''; // Erro
 
 char ch = '\''; // Okay
 </code></pre>
+</div>
+</div>
 <h4 id="conversões-para-outros-tipos-inteiros"><a class="header" href="#conversões-para-outros-tipos-inteiros">Conversões para outros tipos inteiros</a></h4>
 <p>Valores <code>char</code> são internamente representados por valores inteiros, e o valor de
 cada caractere depende do sistema. Muitos sistemas utilizam o conjunto de
@@ -601,10 +644,17 @@ caracteres ASCII, parcialmente mostrado na tabela abaixo.</p>
 resultado é o valor inteiro que representa o caractere no conjunto de caracteres
 utilizado. Quando um tipo inteiro é convertido para <code>char</code>, o resultado é o
 caractere que representa o valor inteiro no conjunto de caracteres utilizado.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">char ch = 65; // ch é igual a 'A' se o conjunto de caracteres for ASCII
 
 int i = 'A'; // i é igual a 65 se o conjunto de caracteres for ASCII
 </code></pre>
+</div>
+</div>
 <div class="admonition warning">
 <div class="admonition-title">
 <p><code>'x'</code> é <code>char</code> mesmo?</p>
@@ -626,24 +676,43 @@ possui outro nome pois esse tipo foi adicionado no padrão C99 e usar o nome
 <code>bool</code> poderia quebrar programas antigos.</p>
 </div>
 </div>
-<p>O tipo <code>_Bool</code> serve para armazenar um de dois valores: verdadeiro ou falso.
-Aqui está um exemplo de duas variáveis <code>_Bool</code>, com valores que indicam,
+<p>O tipo <code>_Bool</code> serve para armazenar um de dois valores: verdadeiro ou falso.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um exemplo de duas variáveis <code>_Bool</code>, com valores que indicam,
 respectivamente, verdade e falsidade:</p>
 <pre><code class="language-c">_Bool verdadeiro = 1;
 _Bool falso = 0;
 </code></pre>
+</div>
+</div>
 <p>Utilizar a palavra-chave <code>_Bool</code> pode não ser intuitivo. Por conveniência, é
 recomendado incluir o arquivo <code>&lt;stdbool.h&gt;</code>, que faz com que <code>bool</code> se refira a
-<code>_Bool</code> e permite utilizar as palavras <code>true</code> (verdadeiro) e <code>false</code> (falso).
-Veja o mesmo código que acima porém utilizando <code>&lt;stdbool.h&gt;</code>:</p>
+<code>_Bool</code> e permite utilizar as palavras <code>true</code> (verdadeiro) e <code>false</code> (falso).</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Veja o mesmo código que no exemplo anterior acima porém utilizando
+<code>&lt;stdbool.h&gt;</code>:</p>
 <pre><code class="language-c">bool verdadeiro = true;
 bool falso = false;
 </code></pre>
+</div>
+</div>
 <p>Sempre que <code>bool</code>, <code>true</code> ou <code>false</code> forem utilizados neste livro, considere que
 a diretiva <code>#include &lt;stdbool.h&gt;</code> está presente mesmo que em alguns exemplos ela
 possa estar omitida por conveniência. É útil lembrar, também, que <code>true</code> se
 refere ao valor <code>1</code> e <code>false</code> ao valor <code>0</code>.</p>
-<h4 id="exemplos-de-uso"><a class="header" href="#exemplos-de-uso">Exemplos de uso</a></h4>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Onde um <code>bool</code> seria usado?</p>
+</div>
+<div>
 <p>Um exemplo do uso de <code>bool</code> são predicados (termo comum para funções que
 retornam <code>true</code> ou <code>false</code>). Suponhamos que a função <code>Paridade</code> seja um
 predicado que verifica a paridade de um número, retornando <code>true</code> caso ele seja
@@ -656,16 +725,25 @@ Paridade(2); // true
 Paridade(4); // true
 Paridade(6); // true
 </code></pre>
+</div>
+</div>
 <h2 id="tipos-flutuantes"><a class="header" href="#tipos-flutuantes">Tipos flutuantes</a></h2>
 <h3 id="tipo-double"><a class="header" href="#tipo-double">Tipo <code>double</code></a></h3>
 <p>Representa um número real, como <code>-30.52</code> ou <code>529.0023</code>. Ao ser convertido para
 um inteiro a parte fracionária é descartada, portanto <code>15.89</code> se torna <code>15</code>. Se
 o valor for alto/baixo demais para ser representado por um <code>int</code>, o
 comportamento é indefinido.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">double d = 2.5; // d é igual a 2.5
 
 int i = 2.5; // i é igual a 2
 </code></pre>
+</div>
+</div>
 <h3 id="tipo-float"><a class="header" href="#tipo-float">Tipo <code>float</code></a></h3>
 <p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
 um <code>float</code> são um subconjunto dos valores representáveis em um <code>double</code>. Isso
@@ -673,8 +751,15 @@ significa que um <code>float</code> pode ter menos precisão e/ou não conseguir
 valores da mesma magnitude que um <code>double</code>.</p>
 <p>Um <code>f</code> ou <code>F</code> após um valor flutuante (e.g. <code>1.5f</code>) especifica que o valor é do
 tipo <code>float</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">float f = 2.5f; // f é igual a 2.5
 </code></pre>
+</div>
+</div>
 <h3 id="tipo-long-double"><a class="header" href="#tipo-long-double">Tipo <code>long double</code></a></h3>
 <p>Representa um número real assim como <code>double</code>, mas os valores representáveis em
 um <code>long double</code> são um superconjunto dos valores representáveis em um <code>double</code>.
@@ -682,8 +767,15 @@ Isso significa que um <code>long double</code> pode ter mais precisão e/ou cons
 representar valores de maior magnitude que um <code>double</code>.</p>
 <p>Um <code>l</code> ou <code>L</code> após um valor flutuante (e.g. <code>1.5l</code>) especifica que o valor é do
 tipo <code>long double</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">long double ld = 2.5l; // ld é igual a 2.5
 </code></pre>
+</div>
+</div>
 <div class="admonition warning">
 <div class="admonition-title">
 <p>Precisão de tipos flutuantes</p>
@@ -723,14 +815,21 @@ algumas implementações.</p>
 informações. Algumas funções para isso são <code>puts</code>, <code>putchar</code> e <code>printf</code>—todas
 incluídas em <code>&lt;stdio.h&gt;</code>.</p>
 <h2 id="função-puts"><a class="header" href="#função-puts">Função <code>puts</code></a></h2>
-<p>A função <code>puts</code> recebe uma string (sequência de caracteres) e a exibe. Podemos
-exibir a string <code>&quot;Olá, Mundo!&quot;</code> simplesmente utilizando-a como argumento de
-<code>puts</code>:</p>
+<p>A função <code>puts</code> recebe uma string (sequência de caracteres) e a exibe.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Podemos exibir a string <code>&quot;Olá, Mundo!&quot;</code> simplesmente utilizando-a como argumento
+de <code>puts</code>:</p>
 <pre><code class="language-c">puts(&quot;Olá, Mundo!&quot;);
 </code></pre>
 <blockquote>
 <p>Olá, Mundo!</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition info">
 <div class="admonition-title">
 <p>Aspas duplas ou simples?</p>
@@ -745,27 +844,41 @@ uma sequência de caracteres entre aspas simples é um <code>int</code> e não u
 se aplica a todas as sequências de escape padrão? -->
 <p>A função <code>puts</code> automaticamente insere uma quebra de linha (<code>\n</code>) na saída após
 a string fornecida, portanto a próxima operação de saída ocorrerá na linha
-seguinte:</p>
+seguinte.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">puts(&quot;Essa é a 1ª linha&quot;);
 puts(&quot;Essa é a 2ª linha&quot;);
 puts(&quot;Essa é a 3ª linha&quot;);
 </code></pre>
 <blockquote>
-<p>Essa é a 1ª linha<br />
-Essa é a 2ª linha<br />
+<p>Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
 Essa é a 3ª linha</p>
 </blockquote>
+</div>
+</div>
 <p>Várias chamadas seguidas de <code>puts</code> com literais string podem ser substituídas
-por apenas uma:</p>
+por apenas uma.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">puts(&quot;Essa é a 1ª linha\n&quot;
      &quot;Essa é a 2ª linha\n&quot;
      &quot;Essa é a 3ª linha&quot;);
 </code></pre>
 <blockquote>
-<p>Essa é a 1ª linha<br />
-Essa é a 2ª linha<br />
+<p>Essa é a 1ª linha<br>
+Essa é a 2ª linha<br>
 Essa é a 3ª linha</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition info">
 <div class="admonition-title">
 <p>Literais string</p>
@@ -782,17 +895,36 @@ string). O resultado final é o mesmo que ao utilizar a string
 linhas torna o código mais compreensível. Utilize essa funcionalidade para uma
 melhor legibilidade de código.</p>
 <p>Tentar separar as três strings utilizando vírgulas resultará em um erro, pois
-serão consideradas três argumentos e a função <code>puts</code> deve receber apenas um:</p>
+serão consideradas três argumentos e a função <code>puts</code> deve receber apenas um.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">// Erro: Passando três argumentos para uma função que recebe apenas um
 puts(&quot;Essa é a 1ª linha\n&quot;,
      &quot;Essa é a 2ª linha\n&quot;,
      &quot;Essa é a 3ª linha&quot;);
 </code></pre>
+</div>
+</div>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Exibição de caracteres estendidos</p>
+</div>
+<div>
 <p>Se os caracteres <code>é</code> e/ou <code>ª</code> não forem exibidos corretamente, seu terminal pode
 estar utilizando um conjunto de caracteres que não os suporta.</p>
+</div>
+</div>
 <h2 id="função-putchar"><a class="header" href="#função-putchar">Função <code>putchar</code></a></h2>
 <p>A função <code>putchar</code> é similar à função <code>puts</code>, porém exibe apenas um caractere e
-não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere:</p>
+não insere uma quebra de linha. Seu uso é simples, basta fornecer um caractere.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">putchar('O');
 putchar('i');
 putchar('!');
@@ -800,6 +932,8 @@ putchar('!');
 <blockquote>
 <p>Oi!</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p>Variáveis como argumentos</p>
@@ -819,8 +953,13 @@ ser utilizado como argumento. Imaginando que <code>v</code> denota uma variável
 <code>int</code> nesse contexto.</p>
 </div>
 </div>
-<p>Aqui está um exemplo de um programa simples, com uma função (<code>ExibirDuo</code>) que
-recebe dois caracteres e os exibe com uma exclamação no final:</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Mais um exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa simples, com uma função (<code>ExibirDuo</code>) que recebe dois
+caracteres e os exibe com uma exclamação no final:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
 void ExibirDuo(char primeiro, char segundo)
@@ -840,8 +979,8 @@ int main(void)
 <blockquote>
 <p>Oi!</p>
 </blockquote>
-<p>Não se engane, a função <code>ExibirDuo</code> é apenas um exemplo e não deve ser muito
-útil em um projeto sério.</p>
+</div>
+</div>
 <h2 id="função-printf"><a class="header" href="#função-printf">Função <code>printf</code></a></h2>
 <p>A função <code>printf</code>, diferente de <code>puts</code>, tem a capacidade de formatar os dados
 antes de exibi-los. O primeiro parâmetro da função é uma string de formato, que
@@ -855,15 +994,27 @@ complexas, utilizamos especificações de conversão—e.g. <code>%d</code>.</p>
 base 10.</li>
 </ul>
 <p>Ao exibir, <code>printf</code> substitui as especificações de conversão pelos valores dos
-argumentos recebidos:</p>
+argumentos recebidos.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo com um argumento</p>
+</div>
+<div>
 <pre><code class="language-c">// %d é substituído pelo argumento 5
 printf(&quot;O valor de 5 é %d&quot;, 5);
 </code></pre>
 <blockquote>
 <p>O valor de 5 é 5</p>
 </blockquote>
+</div>
+</div>
 <p>Quando há várias especificações de conversão, a enésima especificação é
-substituída pelo enésimo argumento após a string de formato:</p>
+substituída pelo enésimo argumento após a string de formato.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo com vários argumentos</p>
+</div>
+<div>
 <pre><code class="language-c">// O 1º %d é substituído pelo 1º argumento após a string de formato (5)
 // O 2º %d é substituído pelo 2º argumento após a string de formato (9)
 printf(&quot;O valor de 5 é %d e o valor de 9 é %d&quot;, 5, 9);
@@ -871,6 +1022,8 @@ printf(&quot;O valor de 5 é %d e o valor de 9 é %d&quot;, 5, 9);
 <blockquote>
 <p>O valor de 5 é 5 e o valor de 9 é 9</p>
 </blockquote>
+</div>
+</div>
 <p>Para os diversos tipos há diversos especificadores de conversão. Vejamos alguns
 deles:</p>
 <table><thead><tr><th style="text-align: center">Especificador</th><th>Significado</th></tr></thead><tbody>
@@ -879,46 +1032,80 @@ deles:</p>
 <tr><td style="text-align: center"><code>f</code></td><td>Um <code>double</code>, exibido com 6 casas decimais por padrão</td></tr>
 <tr><td style="text-align: center"><code>s</code></td><td>Uma string</td></tr>
 </tbody></table>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%s</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %s é substituído por &quot;World&quot;.
 printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
 </code></pre>
 <blockquote>
 <p>Hello, World!</p>
 </blockquote>
+</div>
+</div>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%f</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %f é substituído pelo valor da expressão acos(-1), função de &lt;math.h&gt;.
 // Isso exibirá um valor aproximado de π com 6 casas decimais, e pode variar
 // conforme o seu sistema. Teste você mesmo.
 printf(&quot;O valor de pi é %f&quot;, acos(-1));
 </code></pre>
+</div>
+</div>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Especificação <code>%c</code></p>
+</div>
+<div>
 <pre><code class="language-c">// %c é substituído pelo caractere &quot;+&quot;.
 printf(&quot;1 %c 1&quot;, '+');
 </code></pre>
 <blockquote>
 <p>1 + 1</p>
 </blockquote>
+</div>
+</div>
 <p>Diferente do que acontece com <code>puts</code>, o repetido uso de <code>printf</code> acima irá
 exibir toda a saída em uma linha apenas. Para iniciar uma nova linha utilize a
 sequência de escape <code>\n</code> no final da string de formato anterior ou no início da
-string de formato atual, por exemplo:</p>
+string de formato atual.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;, &quot;World&quot;);
 printf(&quot;Goodbye, %s!&quot;, &quot;World&quot;);
-
-// Alternativamente:
-printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
+</code></pre>
+<p>Ou, alternativamente:</p>
+<pre><code class="language-c">printf(&quot;Hello, %s!&quot;, &quot;World&quot;);
 printf(&quot;\nGoodbye, %s!&quot;, &quot;World&quot;);
 </code></pre>
-<p>Nos casos acima seria melhor utilizar <code>printf</code> apenas uma vez, mas serve como
-exemplo. Mesmo assim, aqui está uma forma de exibir com um <code>printf</code>:</p>
+</div>
+</div>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Duas linhas em um <code>printf</code></p>
+</div>
+<div>
+<p>Nos exemplos acima seria melhor utilizar <code>printf</code> apenas uma vez. Aqui estão
+duas formas de exibir duas linhas com apenas um <code>printf</code>:</p>
 <pre><code class="language-c">printf(&quot;Hello, %s!\n&quot;
        &quot;Goodbye, %s!&quot;,
        &quot;World&quot;, &quot;World&quot;);
-
-// Alternativamente:
-printf(&quot;Hello, %s!\nGoodbye, %s!&quot;, &quot;World&quot;, &quot;World&quot;);
+</code></pre>
+<pre><code class="language-c">printf(&quot;Hello, %s!\nGoodbye, %s!&quot;, &quot;World&quot;, &quot;World&quot;);
 </code></pre>
 <p>Na primeira opção acima os primeiros dois literais string se tornam um argumento
 só, efetivamente causando o mesmo resultado que a segunda opção. Esse processo
 foi explicado em <a href="introducao/saida.html#fun%C3%A7%C3%A3o-puts">Função <code>puts</code></a>.</p>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p><code>%f</code> para <code>float</code>?</p>
@@ -954,15 +1141,22 @@ formato determinam o tipo do valor que será lido. Vejamos algumas especificaç�
 <code>float</code> e <code>%lf</code> para <code>double</code>. Você não deve utilizar <code>%f</code> no lugar de <code>%lf</code> ou
 <code>%d</code> lugar de <code>%hd</code> e vice-versa.</p>
 <p>Para armazenar um valor lido com uma especificação de conversão, precisamos
-especificar seu alvo (a localização de um objeto na memória). No nosso caso,
-utilizaremos o operador <code>&amp;</code> unário (<em>address-of</em>, ou endereço-de) para obter o
-endereço do objeto representado pela variável <code>n</code>:</p>
+especificar seu alvo (a localização de um objeto na memória).</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Neste caso, utilizaremos o operador <code>&amp;</code> unário (<em>address-of</em>, ou endereço-de)
+para obter o endereço do objeto representado pela variável <code>n</code>:</p>
 <pre><code class="language-c">int n;
 scanf(&quot;%d&quot;, &amp;n);
 </code></pre>
-<p>A chamada de função acima lê um número inteiro da entrada e armazena seu valor
-em <code>n</code> por meio de seu endereço na memória. A especificação <code>%d</code> descarta
-quaisquer caracteres white-space da entrada até encontrar outro tipo de
+</div>
+</div>
+<p>A chamada de função no exemplo acima lê um número inteiro da entrada e armazena
+seu valor em <code>n</code> por meio de seu endereço na memória. A especificação <code>%d</code>
+descarta quaisquer caracteres white-space da entrada até encontrar outro tipo de
 caractere, portanto essa <code>scanf</code> funciona com qualquer número de caracteres
 white-space precedendo o número na entrada.</p>
 <p>Antes de continuar é importante definir o que é um caractere white-space. Essa
@@ -974,6 +1168,11 @@ expressão se refere a qualquer caractere da lista abaixo.</p>
 <li><code>'\n'</code> (quebra de linha)</li>
 <li><code>'\f'</code> (quebra de página)</li>
 </ul>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Um programa com entrada/saída</p>
+</div>
+<div>
 <p>Retomando nosso foco, já podemos fazer um simples programa com entrada e saída:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -988,7 +1187,9 @@ int main(void)
     return 0;
 }
 </code></pre>
-<p>Execute o código acima e tente fazê-lo produzir um resultado incorreto. A
+</div>
+</div>
+<p>Execute o exemplo acima e tente fazê-lo produzir um resultado incorreto. A
 leitura do número pode dar errado de várias formas, incluindo:</p>
 <ul>
 <li>A entrada não é um número. Nesse caso <code>scanf</code> não modifica a entrada (exceto
@@ -1002,6 +1203,11 @@ e todos dígitos seguintes serão ignorados.</li>
 <p>Com a especificação <code>%d</code> a sequência de dígitos será lida até um caractere de
 outro tipo (ex. uma letra) ser encontrado. Com a entrada <code>163p90</code>, <code>scanf</code>
 associará <code>163</code> ao <code>%d</code> e <code>p90</code> continuará na entrada para ser lido futuramente.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Lendo <code>163p90</code></p>
+</div>
+<div>
 <p>Podemos decompor a entrada <code>163p90</code> em dois objetos <code>int</code> e um <code>char</code> da
 seguinte forma:</p>
 <pre><code class="language-c">// A ordem de definição das variáveis não importa
@@ -1017,27 +1223,37 @@ printf(&quot;a: %d\n&quot;
        a, b, c);
 </code></pre>
 <blockquote>
-<p>a: 163<br />
-b: p<br />
+<p>a: 163<br>
+b: p<br>
 c: 90</p>
 </blockquote>
-<p>A <code>scanf</code> acima associa <code>163</code> ao primeiro <code>%d</code>, armazena o valor em <code>a</code> e a
-sequência <code>p90</code> continua na entrada. O próximo caractere (<code>'p'</code> nesse caso) se
-associa ao <code>%c</code> e é armazenado em <code>b</code>. O último <code>%d</code> recebe o inteiro <code>90</code> que é
-armazenado em <code>c</code>. Depois, os valores são exibidos com <code>printf</code>.</p>
+</div>
+</div>
+<p>No exemplo acima a <code>scanf</code> associa <code>163</code> ao primeiro <code>%d</code>, armazena o valor em
+<code>a</code> e a sequência <code>p90</code> continua na entrada. O próximo caractere (<code>'p'</code> nesse
+caso) se associa ao <code>%c</code> e é armazenado em <code>b</code>. O último <code>%d</code> recebe o inteiro
+<code>90</code> que é armazenado em <code>c</code>. Depois, os valores são exibidos com <code>printf</code>.</p>
 <p>Quando um caractere da string de formato não faz parte de uma especificação de
 conversão, <code>scanf</code> verificará se esse caractere é igual ao próximo caractere da
 entrada. Se sim, o caractere da entrada é descartado e prosseguimos com a string
 de formato, caso contrário a execução de <code>scanf</code> para.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">printf(&quot;Quantos anos você tem? &quot;);
 int idade;
 scanf(&quot;Eu tenho %d&quot;, &amp;idade);
 </code></pre>
-<p>A <code>scanf</code> acima só chega ao <code>%d</code> se os caracteres anteriores corresponderem à
-entrada. Se a entrada for <code>Eu tenho 5</code>, o valor de <code>idade</code> será 5, mas a entrada
-<code>Eu tinha 5</code> não armazena nada em <code>idade</code> e seu valor é indeterminado. Um espaço
-na string de formato corresponde a zero ou mais caracteres white-space na
-entrada, então a entrada <code>Eutenho5</code> também funciona corretamente.</p>
+</div>
+</div>
+<p>No exemplo acima a <code>scanf</code> só chega ao <code>%d</code> se os caracteres anteriores
+corresponderem à entrada. Se a entrada for <code>Eu tenho 5</code>, o valor de <code>idade</code> será
+5, mas a entrada <code>Eu tinha 5</code> não armazena nada em <code>idade</code> e seu valor é
+indeterminado. Um espaço na string de formato corresponde a zero ou mais
+caracteres white-space na entrada, então a entrada <code>Eutenho5</code> também funciona
+corretamente.</p>
 <p>A string de formato <code>&quot;Eu tenho%d&quot;</code> também funciona corretamente, pois como
 supracitado, a especificação <code>%d</code> faz com que <code>scanf</code> descarta qualquer espaço
 em branco até encontrar um caractere non-white-space (caracteres não
@@ -1047,6 +1263,11 @@ quebra de linha (<code>\n</code>) do final da linha de entrada. Isso pode fazer 
 esse caractere se associe a uma futura especificação <code>%c</code> e isso pode ser
 indesejado. Para descartar esse caractere de uma forma simples, utilize um
 espaço antes da especificação <code>%c</code> e isso pulará a quebra de linha.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui está um código em que a quebra de linha na entrada pode ser prejudicial:</p>
 <pre><code class="language-c">int num;
 scanf(&quot;%d&quot;, &amp;num);
@@ -1071,6 +1292,8 @@ printf(&quot;O caractere lido foi '%c'\n&quot;, ch);
 </code></pre>
 <p>Alternativamente, o espaço pode estar após a especificação <code>%d</code>:
 <code>scanf(&quot;%d &quot;, &amp;num)</code>.</p>
+</div>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="operadores-aritméticos-básicos"><a class="header" href="#operadores-aritméticos-básicos">Operadores aritméticos básicos</a></h1>
 <p>Virtualmente toda a manipulação de dados em C é feita por operadores, que
 indicam operações ações a serem realizadas com seus operandos (valores que a
@@ -1099,7 +1322,12 @@ seguinte sintaxe:</p>
 <p>O operador binário <code>+</code> funciona igual na matemática: o resultado da operação é a
 soma dos dois operandos. <code>5 + 3</code>, por exemplo, é uma expressão de valor <code>int</code>
 <code>8</code>.</p>
-<p>Como exemplo, aqui está um programa que soma dois números que o usuário digitar
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa que soma dois números que o usuário digitar
 e exibe o resultado:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -1113,6 +1341,8 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <h3 id="--binário"><a class="header" href="#--binário"><code>-</code> binário</a></h3>
 <p>O operador binário <code>-</code> funciona de forma parecida ao operador <code>+</code> binário, porém
 realiza subtração ao invés de adição. <code>5 - 3</code>, por exemplo, é uma expressão de
@@ -1157,7 +1387,12 @@ de seu operando, transformando <code>50</code> em <code>-50</code>, <code>-25</c
 <p>Ele pode ser no-op quando seu operando possui valor zero, mas em alguns sistemas
 é possível distinguir entre zero positivo e zero negativo. Não se preocupe muito
 com isso, pois o sinal do zero raramente altera o comportamento de um programa.</p>
-<p>Como exemplo de uso do <code>-</code> unário, aqui está um programa que inverte o número
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa que inverte o número
 que o usuário digitar:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -1172,6 +1407,8 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <h2 id="precedência"><a class="header" href="#precedência">Precedência</a></h2>
 <p>Assim como na matemática, aqui temos o conceito de precedência de operadores.
 Isso significa que algumas operações são executadas antes de outras,
@@ -1180,17 +1417,29 @@ independentemente da ordem em que aparecem em uma expressão.</p>
 e <code>-</code>, portanto, a expressão <code>a + b / 2</code> é o mesmo que <code>a + (b / 2)</code>. As versões
 unárias de <code>+</code> e <code>-</code> possuem maior precedência que todos os operadores acima,
 portanto <code>a + b * -c</code> é o mesmo que <code>a + (b * (-c))</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui estão mais alguns exemplos da precedência desses operadores:</p>
 <pre><code class="language-c">int   a = 1 + 2 * 3;   // 7
 int   b = 10 + 2 / 2;  // 11
 float c = 1 + 3.f / 2; // 2.5f
 </code></pre>
+</div>
+</div>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="operadores-de-incremento-e-decremento"><a class="header" href="#operadores-de-incremento-e-decremento">Operadores de incremento e decremento</a></h1>
 <p>Incrementar ou decrementar algum número por 1 é muito comum, portanto existem
 operadores para fazer isso de forma concisa.</p>
 <h2 id="operadores-de-prefixo--e---"><a class="header" href="#operadores-de-prefixo--e---">Operadores de prefixo <code>++</code> e <code>--</code></a></h2>
 <p>Estes operadores unários ficam à esquerda de seus operandos e os modificam,
 incrementando (<code>++</code>) ou decrementando (<code>--</code>) o valor em 1.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui está um diagrama ilustrando as alterações que estes operadores causam no
 valor de uma variável:</p>
 <pre class="mermaid">stateDiagram
@@ -1219,18 +1468,27 @@ valor de uma variável:</p>
 --n; // n agora vale 4
 ++n; // n agora vale 5
 </code></pre>
-<p>Estas operações não só modificam o operando como também produzem seu novo valor.
-Isso significa que a expressão <code>++n</code> produz o valor <code>n + 1</code> e a expressão <code>--n</code>
-produz <code>n - 1</code>.</p>
+</div>
+</div>
+<p>As operações acima não só modificam o operando como também produzem seu novo
+valor. Isso significa que a expressão <code>++n</code> produz o valor <code>n + 1</code> e a expressão
+<code>--n</code> produz <code>n - 1</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 printf(&quot;%d\n&quot;, ++n);
 printf(&quot;%d\n&quot;, --n);
 </code></pre>
 <blockquote>
-<p>6<br />
+<p>6<br>
 5</p>
 </blockquote>
+</div>
+</div>
 <h2 id="operadores-de-sufixo--e---"><a class="header" href="#operadores-de-sufixo--e---">Operadores de sufixo <code>++</code> e <code>--</code></a></h2>
 <p>Ao contrário dos operadores de prefixo, estes operadores ficam à direita do
 operando. O comportamento é similar: <code>++</code> incrementa e <code>--</code> decrementa, porém a
@@ -1238,15 +1496,22 @@ expressão produz o valor original e o incremento/decremento não ocorre
 imediatamente mas sim durante ou antes do próximo ponto de sequência. Pontos de
 sequência existem em vários lugares diferentes, e.g. todo <code>;</code> é um ponto de
 sequência.</p>
+<div class="admonition info">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 printf(&quot;%d\n&quot;, n++); // n++ produz 5 e depois incrementa n
 printf(&quot;%d\n&quot;, n);
 </code></pre>
 <blockquote>
-<p>5<br />
+<p>5<br>
 6</p>
 </blockquote>
+</div>
+</div>
 <div class="admonition danger">
 <div class="admonition-title">
 <p>Operações não sequenciadas</p>

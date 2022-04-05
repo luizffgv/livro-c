@@ -171,7 +171,12 @@ seguinte sintaxe:</p>
 <p>O operador binário <code>+</code> funciona igual na matemática: o resultado da operação é a
 soma dos dois operandos. <code>5 + 3</code>, por exemplo, é uma expressão de valor <code>int</code>
 <code>8</code>.</p>
-<p>Como exemplo, aqui está um programa que soma dois números que o usuário digitar
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa que soma dois números que o usuário digitar
 e exibe o resultado:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -185,6 +190,8 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <h3 id="--binário"><a class="header" href="#--binário"><code>-</code> binário</a></h3>
 <p>O operador binário <code>-</code> funciona de forma parecida ao operador <code>+</code> binário, porém
 realiza subtração ao invés de adição. <code>5 - 3</code>, por exemplo, é uma expressão de
@@ -229,7 +236,12 @@ de seu operando, transformando <code>50</code> em <code>-50</code>, <code>-25</c
 <p>Ele pode ser no-op quando seu operando possui valor zero, mas em alguns sistemas
 é possível distinguir entre zero positivo e zero negativo. Não se preocupe muito
 com isso, pois o sinal do zero raramente altera o comportamento de um programa.</p>
-<p>Como exemplo de uso do <code>-</code> unário, aqui está um programa que inverte o número
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um programa que inverte o número
 que o usuário digitar:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -244,6 +256,8 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <h2 id="precedência"><a class="header" href="#precedência">Precedência</a></h2>
 <p>Assim como na matemática, aqui temos o conceito de precedência de operadores.
 Isso significa que algumas operações são executadas antes de outras,
@@ -252,11 +266,18 @@ independentemente da ordem em que aparecem em uma expressão.</p>
 e <code>-</code>, portanto, a expressão <code>a + b / 2</code> é o mesmo que <code>a + (b / 2)</code>. As versões
 unárias de <code>+</code> e <code>-</code> possuem maior precedência que todos os operadores acima,
 portanto <code>a + b * -c</code> é o mesmo que <code>a + (b * (-c))</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui estão mais alguns exemplos da precedência desses operadores:</p>
 <pre><code class="language-c">int   a = 1 + 2 * 3;   // 7
 int   b = 10 + 2 / 2;  // 11
 float c = 1 + 3.f / 2; // 2.5f
 </code></pre>
+</div>
+</div>
 
                     </main>
 

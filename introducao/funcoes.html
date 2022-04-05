@@ -271,10 +271,17 @@ utilizada em alguns contextos em que se espera um valor, e.g. a expressão
 <p>Dizemos que uma função é &quot;chamada&quot; quando é utilizada dessa forma. Uma chamada
 de função é uma expressão que possui o valor retornado pela função no final de
 sua execução; isso significa que a expressão <code>bar()</code> (chamada da função <code>bar</code>) é
-aproximadamente equivalente à expressão <code>3</code>. A função <code>bar2</code> abaixo, por
-exemplo, retornará o valor <code>6</code> (<code>3 + 3</code>):</p>
+aproximadamente equivalente à expressão <code>3</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>A função <code>bar2</code> abaixo retornará o valor <code>6</code> (<code>3 + 3</code>):</p>
 <pre><code class="language-c">int bar2(void) { return bar() + bar(); }
 </code></pre>
+</div>
+</div>
 <div class="admonition tip">
 <div class="admonition-title">
 <p>Chamadas de função como argumentos</p>
@@ -287,8 +294,13 @@ funções. <code>foo(bar())</code> resulta em <code>foo(3)</code>, que resulta e
 <h2 id="funções-na-biblioteca-padrão"><a class="header" href="#funções-na-biblioteca-padrão">Funções na biblioteca padrão</a></h2>
 <p>Antes de criar uma função, verifique se uma equivalente já não existe na
 biblioteca padrão do C. Para calcular o logaritmo natural de um número, por
-exemplo, basta utilizar a função <code>log</code> do arquivo <code>&lt;math.h&gt;</code>. Um programa que
-calcula o logaritmo natural de 5 pode ser feito assim:</p>
+exemplo, basta utilizar a função <code>log</code> do arquivo <code>&lt;math.h&gt;</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Um programa que calcula o logaritmo natural de 5 pode ser feito assim:</p>
 <pre><code class="language-c">#include &lt;math.h&gt;
 
 int main(void)
@@ -298,11 +310,13 @@ int main(void)
     return 0;
 }
 </code></pre>
+</div>
+</div>
 <p>Embora <code>&lt;math.h&gt;</code> seja parte da biblioteca padrão, seu código pode não ser
 ligado automaticamente ao programa. Para solicitar a ligação no compilador GCC,
 adicione o argumento <code>-lm</code> na compilação (e.g. <code>gcc main.c -lm</code>). Em outros
 compiladores o procedimento pode ser diferente.</p>
-<p>Lembre-se também que no código acima, o valor de <code>log(5)</code> não é utilizado ou
+<p>Lembre-se também que no exemplo acima, o valor de <code>log(5)</code> não é utilizado ou
 exibido—a exibição de valores numéricos será introduzida posteriormente.</p>
 
                     </main>

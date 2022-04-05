@@ -167,15 +167,22 @@ formato determinam o tipo do valor que será lido. Vejamos algumas especificaç�
 <code>float</code> e <code>%lf</code> para <code>double</code>. Você não deve utilizar <code>%f</code> no lugar de <code>%lf</code> ou
 <code>%d</code> lugar de <code>%hd</code> e vice-versa.</p>
 <p>Para armazenar um valor lido com uma especificação de conversão, precisamos
-especificar seu alvo (a localização de um objeto na memória). No nosso caso,
-utilizaremos o operador <code>&amp;</code> unário (<em>address-of</em>, ou endereço-de) para obter o
-endereço do objeto representado pela variável <code>n</code>:</p>
+especificar seu alvo (a localização de um objeto na memória).</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Neste caso, utilizaremos o operador <code>&amp;</code> unário (<em>address-of</em>, ou endereço-de)
+para obter o endereço do objeto representado pela variável <code>n</code>:</p>
 <pre><code class="language-c">int n;
 scanf(&quot;%d&quot;, &amp;n);
 </code></pre>
-<p>A chamada de função acima lê um número inteiro da entrada e armazena seu valor
-em <code>n</code> por meio de seu endereço na memória. A especificação <code>%d</code> descarta
-quaisquer caracteres white-space da entrada até encontrar outro tipo de
+</div>
+</div>
+<p>A chamada de função no exemplo acima lê um número inteiro da entrada e armazena
+seu valor em <code>n</code> por meio de seu endereço na memória. A especificação <code>%d</code>
+descarta quaisquer caracteres white-space da entrada até encontrar outro tipo de
 caractere, portanto essa <code>scanf</code> funciona com qualquer número de caracteres
 white-space precedendo o número na entrada.</p>
 <p>Antes de continuar é importante definir o que é um caractere white-space. Essa
@@ -187,6 +194,11 @@ expressão se refere a qualquer caractere da lista abaixo.</p>
 <li><code>'\n'</code> (quebra de linha)</li>
 <li><code>'\f'</code> (quebra de página)</li>
 </ul>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Um programa com entrada/saída</p>
+</div>
+<div>
 <p>Retomando nosso foco, já podemos fazer um simples programa com entrada e saída:</p>
 <pre><code class="language-c">#include &lt;stdio.h&gt;
 
@@ -201,7 +213,9 @@ int main(void)
     return 0;
 }
 </code></pre>
-<p>Execute o código acima e tente fazê-lo produzir um resultado incorreto. A
+</div>
+</div>
+<p>Execute o exemplo acima e tente fazê-lo produzir um resultado incorreto. A
 leitura do número pode dar errado de várias formas, incluindo:</p>
 <ul>
 <li>A entrada não é um número. Nesse caso <code>scanf</code> não modifica a entrada (exceto
@@ -215,6 +229,11 @@ e todos dígitos seguintes serão ignorados.</li>
 <p>Com a especificação <code>%d</code> a sequência de dígitos será lida até um caractere de
 outro tipo (ex. uma letra) ser encontrado. Com a entrada <code>163p90</code>, <code>scanf</code>
 associará <code>163</code> ao <code>%d</code> e <code>p90</code> continuará na entrada para ser lido futuramente.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Lendo <code>163p90</code></p>
+</div>
+<div>
 <p>Podemos decompor a entrada <code>163p90</code> em dois objetos <code>int</code> e um <code>char</code> da
 seguinte forma:</p>
 <pre><code class="language-c">// A ordem de definição das variáveis não importa
@@ -230,27 +249,37 @@ printf(&quot;a: %d\n&quot;
        a, b, c);
 </code></pre>
 <blockquote>
-<p>a: 163<br />
-b: p<br />
+<p>a: 163<br>
+b: p<br>
 c: 90</p>
 </blockquote>
-<p>A <code>scanf</code> acima associa <code>163</code> ao primeiro <code>%d</code>, armazena o valor em <code>a</code> e a
-sequência <code>p90</code> continua na entrada. O próximo caractere (<code>'p'</code> nesse caso) se
-associa ao <code>%c</code> e é armazenado em <code>b</code>. O último <code>%d</code> recebe o inteiro <code>90</code> que é
-armazenado em <code>c</code>. Depois, os valores são exibidos com <code>printf</code>.</p>
+</div>
+</div>
+<p>No exemplo acima a <code>scanf</code> associa <code>163</code> ao primeiro <code>%d</code>, armazena o valor em
+<code>a</code> e a sequência <code>p90</code> continua na entrada. O próximo caractere (<code>'p'</code> nesse
+caso) se associa ao <code>%c</code> e é armazenado em <code>b</code>. O último <code>%d</code> recebe o inteiro
+<code>90</code> que é armazenado em <code>c</code>. Depois, os valores são exibidos com <code>printf</code>.</p>
 <p>Quando um caractere da string de formato não faz parte de uma especificação de
 conversão, <code>scanf</code> verificará se esse caractere é igual ao próximo caractere da
 entrada. Se sim, o caractere da entrada é descartado e prosseguimos com a string
 de formato, caso contrário a execução de <code>scanf</code> para.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">printf(&quot;Quantos anos você tem? &quot;);
 int idade;
 scanf(&quot;Eu tenho %d&quot;, &amp;idade);
 </code></pre>
-<p>A <code>scanf</code> acima só chega ao <code>%d</code> se os caracteres anteriores corresponderem à
-entrada. Se a entrada for <code>Eu tenho 5</code>, o valor de <code>idade</code> será 5, mas a entrada
-<code>Eu tinha 5</code> não armazena nada em <code>idade</code> e seu valor é indeterminado. Um espaço
-na string de formato corresponde a zero ou mais caracteres white-space na
-entrada, então a entrada <code>Eutenho5</code> também funciona corretamente.</p>
+</div>
+</div>
+<p>No exemplo acima a <code>scanf</code> só chega ao <code>%d</code> se os caracteres anteriores
+corresponderem à entrada. Se a entrada for <code>Eu tenho 5</code>, o valor de <code>idade</code> será
+5, mas a entrada <code>Eu tinha 5</code> não armazena nada em <code>idade</code> e seu valor é
+indeterminado. Um espaço na string de formato corresponde a zero ou mais
+caracteres white-space na entrada, então a entrada <code>Eutenho5</code> também funciona
+corretamente.</p>
 <p>A string de formato <code>&quot;Eu tenho%d&quot;</code> também funciona corretamente, pois como
 supracitado, a especificação <code>%d</code> faz com que <code>scanf</code> descarta qualquer espaço
 em branco até encontrar um caractere non-white-space (caracteres não
@@ -260,6 +289,11 @@ quebra de linha (<code>\n</code>) do final da linha de entrada. Isso pode fazer 
 esse caractere se associe a uma futura especificação <code>%c</code> e isso pode ser
 indesejado. Para descartar esse caractere de uma forma simples, utilize um
 espaço antes da especificação <code>%c</code> e isso pulará a quebra de linha.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <p>Aqui está um código em que a quebra de linha na entrada pode ser prejudicial:</p>
 <pre><code class="language-c">int num;
 scanf(&quot;%d&quot;, &amp;num);
@@ -284,6 +318,8 @@ printf(&quot;O caractere lido foi '%c'\n&quot;, ch);
 </code></pre>
 <p>Alternativamente, o espaço pode estar após a especificação <code>%d</code>:
 <code>scanf(&quot;%d &quot;, &amp;num)</code>.</p>
+</div>
+</div>
 
                     </main>
 

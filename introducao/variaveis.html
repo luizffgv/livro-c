@@ -167,7 +167,13 @@ já estava na memória. Para inicializá-la, basta especificar um inicializador
 especificado.</p>
 <h2 id="uso"><a class="header" href="#uso">Uso</a></h2>
 <p>O valor de uma variável pode ser acessado e modificado durante a execução do
-programa. Aqui está um código e um diagrama que representa as alterações no
+programa.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
+<p>Aqui está um código e um diagrama que representa as alterações no
 valor <code>x</code> durante sua execução:</p>
 <pre><code class="language-c">int main(void)
 {
@@ -185,6 +191,8 @@ valor <code>x</code> durante sua execução:</p>
     10--&gt;1: x = x - 9
     1--&gt;3: x = x + x + x
 </pre>
+</div>
+</div>
 <p>O identificador de uma variável é uma expressão que produz o valor armazenado em
 seu respectivo objeto, portanto após a expressão <code>x = 10</code>, a expressão <code>x</code>
 produz o valor <code>10</code>; nesse caso <code>x + 3</code> é o mesmo que <code>10 + 3</code>.</p>
@@ -267,7 +275,12 @@ original será acessada:</p>
 </code></pre>
 <h3 id="escopo-de-arquivo"><a class="header" href="#escopo-de-arquivo">Escopo de Arquivo</a></h3>
 <p>Uma variável declarada fora de um bloco possui escopo de arquivo—pode ser
-acessada em qualquer lugar do arquivo após sua declaração:</p>
+acessada em qualquer lugar do arquivo após sua declaração.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo</p>
+</div>
+<div>
 <pre><code class="language-c">int n = 5;
 
 int foo(void)
@@ -280,6 +293,8 @@ int bar(void)
     return n; // Retorna 5
 }
 </code></pre>
+</div>
+</div>
 <p>Diferente de variáveis com escopo de bloco, variáveis com escopo de arquivo são
 inicializadas com valores definidos de acordo com seus tipos. Se o inicializador
 fosse removido do código acima <code>n</code> armazenaria <code>0</code>, enquanto se <code>n</code> tivesse
