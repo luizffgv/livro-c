@@ -113,11 +113,10 @@ b: p<br>
 c: 90
 ```
 
-No exemplo acima a `scanf` acima associa `163` ao primeiro `%d`, armazena o
-valor em `a` e a sequência `p90` continua na entrada. O próximo caractere (`'p'`
-nesse caso) se associa ao `%c` e é armazenado em `b`. O último `%d` recebe o
-inteiro `90` que é armazenado em `c`. Depois, os valores são exibidos com
-`printf`.
+No exemplo acima a `scanf` associa `163` ao primeiro `%d`, armazena o valor em
+`a` e a sequência `p90` continua na entrada. O próximo caractere (`'p'` nesse
+caso) se associa ao `%c` e é armazenado em `b`. O último `%d` recebe o inteiro
+`90` que é armazenado em `c`. Depois, os valores são exibidos com `printf`.
 
 Quando um caractere da string de formato não faz parte de uma especificação de
 conversão, `scanf` verificará se esse caractere é igual ao próximo caractere da
@@ -132,7 +131,7 @@ scanf("Eu tenho %d", &idade);
 ~~~
 ```
 
-No exemplo acima a `scanf` acima só chega ao `%d` se os caracteres anteriores
+No exemplo acima a `scanf` só chega ao `%d` se os caracteres anteriores
 corresponderem à entrada. Se a entrada for `Eu tenho 5`, o valor de `idade` será
 5, mas a entrada `Eu tinha 5` não armazena nada em `idade` e seu valor é
 indeterminado. Um espaço na string de formato corresponde a zero ou mais
