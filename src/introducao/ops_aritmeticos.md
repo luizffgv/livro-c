@@ -143,8 +143,8 @@ int main(void)
 ## Precedência
 
 Assim como na matemática, aqui temos o conceito de precedência de operadores.
-Isso significa que algumas operações são executadas antes de outras,
-independentemente da ordem em que aparecem em uma expressão.
+Isso significa que algumas operações são agrupadas independentemente da ordem em
+que aparecem em uma expressão.
 
 Os operadores `*` e `/` possuem maior precedência que os operadores binários `+`
 e `-`, portanto, a expressão `a + b / 2` é o mesmo que `a + (b / 2)`. As versões
