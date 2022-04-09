@@ -79,7 +79,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="prefacio.html">Prefácio</a></li><li class="chapter-item "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item "><a href="introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item "><a href="introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item "><a href="introducao/tipos_fundamentais.html"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item "><a href="introducao/saida.html"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item "><a href="introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item "><a href="introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item "><a href="introducao/ops_incremento_decremento.html"><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</a></li><li class="chapter-item "><a href="introducao/ops_atribuicao.html"><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</a></li><li class="chapter-item "><div><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</div></li><li class="chapter-item "><div><strong aria-hidden="true">1.11.</strong> Operadores lógicos e relacionais</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Armadilhas</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Ordem de avaliação</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> Biblioteca padrão</div></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="prefacio.html">Prefácio</a></li><li class="chapter-item "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item "><a href="introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item "><a href="introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item "><a href="introducao/tipos_fundamentais.html"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item "><a href="introducao/saida.html"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item "><a href="introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item "><a href="introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item "><a href="introducao/ops_incremento_decremento.html"><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</a></li><li class="chapter-item "><a href="introducao/ops_atribuicao.html"><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</a></li><li class="chapter-item "><a href="introducao/ops_associatividade.html"><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</a></li><li class="chapter-item "><div><strong aria-hidden="true">1.11.</strong> Operadores lógicos e relacionais</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Armadilhas</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Ordem de avaliação</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> Biblioteca padrão</div></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1411,8 +1411,8 @@ int main(void)
 </div>
 <h2 id="precedência"><a class="header" href="#precedência">Precedência</a></h2>
 <p>Assim como na matemática, aqui temos o conceito de precedência de operadores.
-Isso significa que algumas operações são executadas antes de outras,
-independentemente da ordem em que aparecem em uma expressão.</p>
+Isso significa que algumas operações são agrupadas independentemente da ordem em
+que aparecem em uma expressão.</p>
 <p>Os operadores <code>*</code> e <code>/</code> possuem maior precedência que os operadores binários <code>+</code>
 e <code>-</code>, portanto, a expressão <code>a + b / 2</code> é o mesmo que <code>a + (b / 2)</code>. As versões
 unárias de <code>+</code> e <code>-</code> possuem maior precedência que todos os operadores acima,
@@ -1587,6 +1587,26 @@ printf(&quot;%d\n&quot;, x);
 <p>Os operadores de atribuição possuem precedência menor que todos os outros
 operadores vistos até agora, portanto <code>a + b = c - d</code> é equivalente a
 <code>(a + b) = (c - d)</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="associatividade-de-operadores"><a class="header" href="#associatividade-de-operadores">Associatividade de operadores</a></h1>
+<p>Quando várias operações têm a mesma precedência, geralmente as agrupamos da
+esquerda para a direita, i.e. são associativas-à-esquerda.</p>
+<h2 id="associatividade-à-esquerda"><a class="header" href="#associatividade-à-esquerda">Associatividade à esquerda</a></h2>
+<p>Como os operadores binários <code>+</code> e <code>-</code> possuem a mesma precedência e são
+associativos-à-esquerda, ambas as expressões abaixo são equivalentes.</p>
+<pre><code class="language-c">a + b + c - d - e
+</code></pre>
+<pre><code class="language-c">(((a + b) + c) - d) - e
+</code></pre>
+<p>Os operadores binários <code>*</code>, <code>/</code> e <code>%</code> possuem a mesma precedência e também
+associatividade à esquerda, portanto <code>a * b / c</code> é o mesmo que <code>(a * b) / c</code>.</p>
+<p>Operações são primeiro agrupadas de acordo com a precedência, e depois de acordo
+com a associatividade. Por isso <code>a + b * c / d</code> é equivalente a
+<code>a + ((b * c) / d)</code> e não <code>((a + b) * c) / d</code>.</p>
+<h2 id="associatividade-à-direita"><a class="header" href="#associatividade-à-direita">Associatividade à direita</a></h2>
+<p>Todos os operadores de atribuição possuem associatividade à direita. Isso
+significa que <code>a = b = c</code> é equivalente a <code>a = (b = c)</code>.</p>
+<p>Como os operadores de atribuição possuem a mesma precedência, <code>a = b *= c += d</code>
+é equivalente a <code>a = (b *= (c += d))</code>.</p>
 
                     </main>
 
