@@ -79,7 +79,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item affix "><a href="prefacio.html">Prefácio</a></li><li class="chapter-item "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item "><a href="introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item "><a href="introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item "><a href="introducao/tipos_fundamentais.html"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item "><a href="introducao/saida.html"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item "><a href="introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item "><a href="introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item "><a href="introducao/ops_incremento_decremento.html"><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</a></li><li class="chapter-item "><a href="introducao/ops_atribuicao.html"><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</a></li><li class="chapter-item "><a href="introducao/ops_associatividade.html"><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</a></li><li class="chapter-item "><div><strong aria-hidden="true">1.11.</strong> Operadores lógicos e relacionais</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Armadilhas</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Ordem de avaliação</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> Biblioteca padrão</div></li></ol>
+                <ol class="chapter"><li class="chapter-item affix "><a href="prefacio.html">Prefácio</a></li><li class="chapter-item "><a href="introducao.html"><strong aria-hidden="true">1.</strong> Básicos da linguagem</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/primeiro_programa.html"><strong aria-hidden="true">1.1.</strong> Primeiro programa</a></li><li class="chapter-item "><a href="introducao/funcoes.html"><strong aria-hidden="true">1.2.</strong> Funções</a></li><li class="chapter-item "><a href="introducao/variaveis.html"><strong aria-hidden="true">1.3.</strong> Variáveis</a></li><li class="chapter-item "><a href="introducao/tipos_fundamentais.html"><strong aria-hidden="true">1.4.</strong> Tipos fundamentais</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introducao/tipos_tabelas.html"><strong aria-hidden="true">1.4.1.</strong> Tabelas</a></li></ol></li><li class="chapter-item "><a href="introducao/saida.html"><strong aria-hidden="true">1.5.</strong> Saída básica</a></li><li class="chapter-item "><a href="introducao/entrada.html"><strong aria-hidden="true">1.6.</strong> Entrada básica</a></li><li class="chapter-item "><a href="introducao/ops_aritmeticos.html"><strong aria-hidden="true">1.7.</strong> Operadores aritméticos básicos</a></li><li class="chapter-item "><a href="introducao/ops_incremento_decremento.html"><strong aria-hidden="true">1.8.</strong> Operadores de incremento e decremento</a></li><li class="chapter-item "><a href="introducao/ops_atribuicao.html"><strong aria-hidden="true">1.9.</strong> Operadores de atribuição</a></li><li class="chapter-item "><a href="introducao/ops_associatividade.html"><strong aria-hidden="true">1.10.</strong> Associatividade de operadores</a></li><li class="chapter-item "><a href="introducao/ops_logicos_relacionais.html"><strong aria-hidden="true">1.11.</strong> Operadores de igualdade, lógicos, e relacionais</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">2.</strong> Armadilhas</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><div><strong aria-hidden="true">2.1.</strong> Ordem de avaliação</div></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">3.</strong> Biblioteca padrão</div></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -1607,6 +1607,153 @@ com a associatividade. Por isso <code>a + b * c / d</code> é equivalente a
 significa que <code>a = b = c</code> é equivalente a <code>a = (b = c)</code>.</p>
 <p>Como os operadores de atribuição possuem a mesma precedência, <code>a = b *= c += d</code>
 é equivalente a <code>a = (b *= (c += d))</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operadores-de-igualdade-lógicos-e-relacionais"><a class="header" href="#operadores-de-igualdade-lógicos-e-relacionais">Operadores de igualdade, lógicos, e relacionais</a></h1>
+<!-- Precisamos de uma vírgula de Oxford pra tirar ambiguidade no título -->
+<h2 id="operadores-de-igualdade"><a class="header" href="#operadores-de-igualdade">Operadores de igualdade</a></h2>
+<p>Os operadores de igualdade verificam a equivalência entre os valores de dois
+objetos.</p>
+<h3 id="operadores--e-"><a class="header" href="#operadores--e-">Operadores <code>==</code> e <code>!=</code></a></h3>
+<p>O operador <code>==</code> (&quot;igual a&quot;) produz o valor <code>1</code> (<code>true</code>) quando seus operandos
+possuem valores equivalentes. A expressão <code>5 == 5</code> tem valor <code>1</code>, enquanto a
+expressão <code>5 == 6</code> tem valor <code>0</code> (<code>false</code>).</p>
+<p>O operador <code>!=</code> (&quot;não igual a&quot;) é o oposto de <code>==</code>. Quando ambos os operandos
+possuem valores equivalentes a expressão tem valor <code>0</code>, caso contrário <code>1</code>.
+<code>7 != 9</code> resulta em <code>1</code>, e <code>7 != 7</code> resulta em <code>0</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplos</p>
+</div>
+<div>
+<p>Imaginemos a expressão <code>A &lt;op&gt; B</code>, sendo <code>&lt;op&gt;</code> um dos operadores <code>==</code> ou
+<code>!=</code>.</p>
+<table><thead><tr><th style="text-align: right">A</th><th style="text-align: center">op</th><th style="text-align: left">B</th><th style="text-align: center">Resultado</th></tr></thead><tbody>
+<tr><td style="text-align: right">10</td><td style="text-align: center">==</td><td style="text-align: left">10</td><td style="text-align: center"><code>true</code></td></tr>
+<tr><td style="text-align: right">10</td><td style="text-align: center">!=</td><td style="text-align: left">10</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">10</td><td style="text-align: center">==</td><td style="text-align: left">25</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">10</td><td style="text-align: center">!=</td><td style="text-align: left">25</td><td style="text-align: center"><code>true</code></td></tr>
+</tbody></table>
+</div>
+</div>
+<p>Se <code>A == B</code> for <code>true</code>, <code>A != B</code> é necessariamente <code>false</code>.</p>
+<h2 id="operadores-relacionais"><a class="header" href="#operadores-relacionais">Operadores relacionais</a></h2>
+<h3 id="operadores--e"><a class="header" href="#operadores--e">Operadores <code>&lt;</code> e <code>&gt;</code></a></h3>
+<p>O operador <code>&lt;</code> (&quot;menor que&quot;) produz o valor <code>1</code> quando o valor do operando à
+esquerda for <strong>menor</strong> que o valor à direita, e o operador <code>&gt;</code> (&quot;maior que&quot;)
+produz o valor <code>1</code> quando o valor do operando à esquerda for <strong>maior</strong> que o
+valor à direita. Nos demais casos, o resultado é <code>0</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplos</p>
+</div>
+<div>
+<p>Imaginemos a expressão <code>A &lt;op&gt; B</code>, sendo <code>&lt;op&gt;</code> um dos operadores <code>&lt;</code> ou
+<code>&gt;</code>.</p>
+<table><thead><tr><th style="text-align: right">A</th><th style="text-align: center">op</th><th style="text-align: left">B</th><th style="text-align: center">Resultado</th></tr></thead><tbody>
+<tr><td style="text-align: right">0</td><td style="text-align: center">&lt;</td><td style="text-align: left">15</td><td style="text-align: center"><code>true</code></td></tr>
+<tr><td style="text-align: right">0</td><td style="text-align: center">&gt;</td><td style="text-align: left">15</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">15</td><td style="text-align: center">&lt;</td><td style="text-align: left">15</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">15</td><td style="text-align: center">&gt;</td><td style="text-align: left">15</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">15</td><td style="text-align: center">&lt;</td><td style="text-align: left">0</td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right">15</td><td style="text-align: center">&gt;</td><td style="text-align: left">0</td><td style="text-align: center"><code>true</code></td></tr>
+</tbody></table>
+</div>
+</div>
+<p>Se ambos <code>A &gt; B</code> e <code>A &lt; B</code> forem <code>false</code>, então <code>A == B</code> é <code>true</code> e vice-versa.</p>
+<div class="admonition warning">
+<div class="admonition-title">
+<p>Comparando NaNs</p>
+</div>
+<div>
+<p>A afirmação anterior não se aplica caso pelo menos uma das expressões <code>isnan(A)</code>
+e <code>isnan(B)</code> (de <code>&lt;math.h&gt;</code>) for diferente de <code>false</code>.  Um objeto de tipo
+flutuante pode possuir um valor NaN, que representa um número indefinido ou
+irrepresentável.</p>
+</div>
+</div>
+<h3 id="operadores--e--1"><a class="header" href="#operadores--e--1">Operadores <code>&lt;=</code> e <code>&gt;=</code></a></h3>
+<p>Os operadores <code>&lt;=</code> (&quot;menor que ou igual a&quot;) e <code>&gt;=</code> (&quot;maior que ou igual a&quot;) são
+similares aos operadores acima. <code>A &lt;= B</code> é <code>true</code> quando <code>A</code> for <strong>menor</strong> ou
+igual a <code>B</code>, e <code>A &gt;= B</code> é <code>true</code> quando <code>A</code> for <strong>maior</strong> ou igual a <code>B</code>.</p>
+<p>É possível que tanto <code>A &lt;= B</code> quanto <code>A &gt;= B</code> sejam <code>true</code>, nesse caso <code>A</code> e <code>B</code>
+possuem valores equivalentes.</p>
+<h2 id="operadores-lógicos"><a class="header" href="#operadores-lógicos">Operadores lógicos</a></h2>
+<p>Para todos os fins relacionados aos operadores lógicos, qualquer valor diferente
+de <code>0</code> (<code>false</code>) é considerado <code>true</code>.</p>
+<h3 id="operador-"><a class="header" href="#operador-">Operador <code>!</code></a></h3>
+<p>O operador <code>!</code> (&quot;NÃO lógico&quot;) inverte o valor lógico de uma expressão—<code>true</code> se
+torna <code>false</code> e <code>false</code> se torna <code>true</code>.</p>
+<p>Se a expressão <code>&lt;expr&gt;</code> for <code>true</code>, a expressão <code>!(&lt;expr&gt;)</code> é necessariamente
+<code>false</code>. <code>!</code> tem precedência maior que todos os operadores apresentados nessa
+página.</p>
+<h3 id="operadores--e--2"><a class="header" href="#operadores--e--2">Operadores <code>&amp;&amp;</code> e <code>||</code></a></h3>
+<p>Os operadores <code>&amp;&amp;</code> (&quot;E lógico&quot;) e <code>||</code> (&quot;OU lógico&quot;) são simples. O resultado da
+aplicação de <code>&amp;&amp;</code> é <code>true</code> quando ambos os operandos possuem valor <code>true</code>,
+enquanto <code>||</code> produz <code>true</code> quando pelo menos <strong>um</strong> de seus operandos possuir
+valor <code>true</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplos</p>
+</div>
+<div>
+<table><thead><tr><th style="text-align: right">A</th><th style="text-align: center">op</th><th style="text-align: left">B</th><th style="text-align: center">Resultado</th></tr></thead><tbody>
+<tr><td style="text-align: right"><code>false</code></td><td style="text-align: center">||</td><td style="text-align: left"><code>false</code></td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right"><code>false</code></td><td style="text-align: center">&amp;&amp;</td><td style="text-align: left"><code>false</code></td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right"><code>true</code></td><td style="text-align: center">||</td><td style="text-align: left"><code>false</code></td><td style="text-align: center"><code>true</code></td></tr>
+<tr><td style="text-align: right"><code>true</code></td><td style="text-align: center">&amp;&amp;</td><td style="text-align: left"><code>false</code></td><td style="text-align: center"><code>false</code></td></tr>
+<tr><td style="text-align: right"><code>true</code></td><td style="text-align: center">||</td><td style="text-align: left"><code>true</code></td><td style="text-align: center"><code>true</code></td></tr>
+<tr><td style="text-align: right"><code>true</code></td><td style="text-align: center">&amp;&amp;</td><td style="text-align: left"><code>true</code></td><td style="text-align: center"><code>true</code></td></tr>
+</tbody></table>
+</div>
+</div>
+<p>Assim, podemos utilizar várias expressões para produzir um valor lógico. Por
+exemplo: <code>a &lt; b &amp;&amp; b &lt; c</code> só é <code>true</code> se <code>a</code>, <code>b</code> e <code>c</code> cada um possuir um valor
+maior que o anterior. A precedência dos operadores lógicos E e OU é menor do que
+a dos operadores relacionais, portanto a expressão anterior é equivalente a
+<code>(a &lt; b) &amp;&amp; (b &lt; c)</code>.</p>
+<p>A precedência do operador <code>||</code> é menor do que a de <code>&amp;&amp;</code>, portanto
+<code>a || b || c &amp;&amp; d || e</code> é equivalente a <code>a || b || (c &amp;&amp; d) || e</code>.</p>
+<div class="admonition example">
+<div class="admonition-title">
+<p>Exemplo de utilização</p>
+</div>
+<div>
+<p>Vamos utilizar os operadores que vimos para fazer uma função que verifica se
+vários números estão ordenados—cada número na sequência é maior ou equivalente
+ao anterior.</p>
+<pre><code class="language-c">bool Ordenados(int a, int b, int c, int d, int e)
+{
+    return a &lt;= b &amp;&amp; b &lt;= c &amp;&amp; c &lt;= d &amp;&amp; d &lt;= e;
+}
+</code></pre>
+<p>A função <code>Ordenados</code> retorna <code>true</code> com os argumentos <code>1, 2, 3, 4, 5</code>, mas
+retorna <code>false</code> com os argumentos <code>1, 2, 3, 4, 3</code>. Vamos utilizá-la em um
+programa interativo:</p>
+<pre><code class="language-c">int main(void)
+{
+    int a, b, c, d, e;
+
+    printf(&quot;Digite 5 inteiros separados por vírgula: &quot;);
+    scanf(&quot;%d ,%d ,%d ,%d ,%d&quot;,
+           &amp;a, &amp;b, &amp;c, &amp;d, &amp;e);
+
+    // Isso exibirá &quot;1&quot; (true) ou &quot;0&quot; (false)
+    printf(&quot;Os números estão ordenados? %d\n&quot;,
+           Ordenados(a, b, c, d, e));
+}
+</code></pre>
+<p>O posicionamento das vírgulas no <code>scanf</code> acima pode ser contraintuitivo, mas
+lembre-se de um detalhe que vimos sobre a string de formato: um espaço em branco
+faz o <code>scanf</code> pular <strong>zero ou mais</strong> caracteres white-space na leitura, portanto
+ele funciona corretamente até se a vírgula estiver logo após o número. A
+especificação <code>%d</code> também pula caracteres white-space caso existam, assim até a
+entrada <code>1 , 2,3, 4,   5</code> funcionaria corretamente.</p>
+<p>Valores <code>bool</code> se tornam <code>int</code> ao serem passados para <code>printf</code>, por isso a
+especificação <code>%d</code> funciona corretamente.</p>
+</div>
+</div>
+<h3 id="associatividade"><a class="header" href="#associatividade">Associatividade</a></h3>
+<p>Os operadores de igualdade, lógicos, e relacionais são associativos-à-esquerda,
+exceto o operador <code>!</code>.</p>
 
                     </main>
 
