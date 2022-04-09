@@ -13,7 +13,7 @@
   - [Operadores aritméticos básicos](./introducao/ops_aritmeticos.md)
   - [Operadores de incremento e decremento](./introducao/ops_incremento_decremento.md)
   - [Operadores de atribuição](./introducao/ops_atribuicao.md)
-  - [Associatividade de operadores]()
+  - [Associatividade de operadores](./introducao/ops_associatividade.md)
   - [Operadores lógicos e relacionais]()
 - [Armadilhas]()
   - [Ordem de avaliação]()
