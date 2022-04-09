@@ -14,7 +14,7 @@
   - [Operadores de incremento e decremento](./introducao/ops_incremento_decremento.md)
   - [Operadores de atribuição](./introducao/ops_atribuicao.md)
   - [Associatividade de operadores]()
-  - [Operadores lógicos e relacionais]()
+  - [Operadores de igualdade, lógicos, e relacionais](./introducao/ops_logicos_relacionais.md)
 - [Armadilhas]()
   - [Ordem de avaliação]()
 - [Biblioteca padrão]()
