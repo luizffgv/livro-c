@@ -15,7 +15,7 @@
   - [Operadores de atribuição](./introducao/ops_atribuicao.md)
   - [Associatividade de operadores](./introducao/ops_associatividade.md)
   - [Operadores de igualdade, lógicos, e relacionais](./introducao/ops_logicos_relacionais.md)
-  - [Instruções]()
+  - [Instruções](./introducao/instrucoes/instrucoes.md)
     - [Instruções de expressão]()
     - [Instruções compostas]()
     - [Instruções de seleção]()
