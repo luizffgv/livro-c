@@ -16,7 +16,7 @@
   - [Associatividade de operadores](./introducao/ops_associatividade.md)
   - [Operadores de igualdade, lógicos, e relacionais](./introducao/ops_logicos_relacionais.md)
   - [Instruções](./introducao/instrucoes/instrucoes.md)
-    - [Instruções de expressão]()
+    - [Instruções de expressão](./introducao/instrucoes/expressao.md)
     - [Instruções compostas]()
     - [Instruções de seleção]()
       - [Instrução `if`]()
